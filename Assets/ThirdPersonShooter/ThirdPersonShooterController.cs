@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+ 
 using UnityEngine;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
-public class ThirdPersonShooterController : MonoBehaviour {
+using UnityEngine.UI;
+
+public class ThirdPersonShooterController : MonoBehaviour
+{
 
     [SerializeField] private Rig aimRig;
     [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
@@ -17,21 +21,38 @@ public class ThirdPersonShooterController : MonoBehaviour {
     [SerializeField] private Transform spawnBulletPosition;
     [SerializeField] private Transform vfxHitGreen;
     [SerializeField] private Transform vfxHitRed;
+    [SerializeField] private bool AddBulletSpread = true;
+    [SerializeField] private Vector3 BulletSpreadVariance = new Vector3(0.1f, 0.1f, 0.1f);
+    [SerializeField] private ParticleSystem ShootingSystem;
+    [SerializeField] private Transform BulletSpawnPoint;
+    [SerializeField] private ParticleSystem ImpactParticleSystem;
+    [SerializeField]
+    private TrailRenderer BulletTrail;
+    [SerializeField]
+    private float ShootDelay = 0.5f;
+    [SerializeField]
+    private LayerMask Mask;
+    [SerializeField]
+    private float BulletSpeed = 100;
 
-
+    private float LastShootTime;
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
     private Animator animator;
     public float aimRigWeight;
 
-    private void Awake() {
+
+
+    private void Awake()
+    {
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         animator = GetComponent<Animator>();
     }
 
-    private void Update() {
-        //aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20f);
+    private void Update()
+    {
+        aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20f);
         Vector3 mouseWorldPosition = Vector3.zero;
 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -51,7 +72,9 @@ public class ThirdPersonShooterController : MonoBehaviour {
             debugTransform.position = mouseWorldPosition;
         }
 
-        if (starterAssetsInputs.aim) {
+        if (starterAssetsInputs.aim)
+        {
+
             aimRigWeight = 1f;
             aimVirtualCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(aimSensitivity);
@@ -63,7 +86,9 @@ public class ThirdPersonShooterController : MonoBehaviour {
             Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
 
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
-        } else {
+        }
+        else
+        {
             aimRigWeight = 0f;
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
@@ -71,33 +96,83 @@ public class ThirdPersonShooterController : MonoBehaviour {
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 13f));
         }
 
+        if (starterAssetsInputs.shoot)
+        {
+            Shoot(mouseWorldPosition);
 
-        if (starterAssetsInputs.shoot) {
-            
-            // Hit Scan Shoot
-            if (hitTransform != null) {
-                // Hit something
-                if (hitTransform.GetComponent<BulletTarget>() != null) {
-                    // Hit target
+            if (hitTransform != null)
+            {
+                if (hitTransform.GetComponent<BulletTarget>() != null)
+                {
                     Instantiate(vfxHitGreen, mouseWorldPosition, Quaternion.identity);
-                } else {
-                    // Hit something else
+                }
+                else
+                {
                     Instantiate(vfxHitRed, mouseWorldPosition, Quaternion.identity);
                 }
             }
-            //*/
-            //*
-            // Projectile Shoot
-            /*
-            Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-            Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
-            //
-            */
-            
+
             starterAssetsInputs.shoot = false;
         }
-        
-
     }
 
+    public void Shoot(Vector3 targetPosition)
+    {
+        if (LastShootTime + ShootDelay < Time.time)
+        {
+            ShootingSystem.Play();
+            Vector3 direction = (targetPosition - BulletSpawnPoint.position).normalized;
+
+            if (Physics.Raycast(BulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
+            {
+                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
+                LastShootTime = Time.time;
+            }
+            else
+            {
+                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                StartCoroutine(SpawnTrail(trail, targetPosition, Vector3.zero, false));
+                LastShootTime = Time.time;
+            }
+        }
+    }
+    private Vector3 GetDirection()
+    {
+        Vector3 direction = transform.forward;
+
+        if (AddBulletSpread)
+        {
+            direction += new Vector3(
+                Random.Range(-BulletSpreadVariance.x, BulletSpreadVariance.x),
+                Random.Range(-BulletSpreadVariance.y, BulletSpreadVariance.y),
+                Random.Range(-BulletSpreadVariance.z, BulletSpreadVariance.z)
+            );
+
+            direction.Normalize();
+        }
+
+        return direction;
+    }
+    private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, bool MadeImpact)
+    {
+        Vector3 startPosition = Trail.transform.position;
+        float distance = Vector3.Distance(Trail.transform.position, HitPoint);
+        float remainingDistance = distance;
+
+        while (remainingDistance > 0)
+        {
+            Trail.transform.position = Vector3.Lerp(startPosition, HitPoint, 1 - (remainingDistance / distance));
+            remainingDistance -= BulletSpeed * Time.deltaTime;
+            yield return null;
+        }
+
+        Trail.transform.position = HitPoint;
+        if (MadeImpact)
+        {
+            Instantiate(ImpactParticleSystem, HitPoint, Quaternion.LookRotation(HitNormal));
+        }
+
+        Destroy(Trail.gameObject, Trail.time);
+    }
 }
