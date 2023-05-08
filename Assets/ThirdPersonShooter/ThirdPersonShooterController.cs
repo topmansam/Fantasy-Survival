@@ -86,7 +86,7 @@ public class ThirdPersonShooterController : MonoBehaviour
 
         if (starterAssetsInputs.shoot)
         {
-            //gun.Shoot(mouseWorldPosition);
+            gun.Shoot(mouseWorldPosition);
 
             if (hitTransform != null)
             {
