@@ -3593,11 +3593,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &896713111055636747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8398396932146243183, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+  m_PrefabInstance: {fileID: 8718083022502936420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &899182023741514159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8396489921432461003, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
   m_PrefabInstance: {fileID: 8718083022502936420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &899182023741514160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896713111055636747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4962360057209b42a2deb769f660e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddBulletSpread: 0
+  BulletSpreadVariance: {x: 0.1, y: 0.1, z: 0.1}
+  ShootingSystem: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  BulletSpawnPoint: {fileID: 1703515485203811029}
+  ImpactParticleSystem: {fileID: 9064919875212695174, guid: a5e1e2c4d2cd81f4abed6272a2b8187a, type: 3}
+  BulletTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
+  ShootDelay: 0.5
+  Mask:
+    serializedVersion: 2
+    m_Bits: 0
+  BulletSpeed: 100
 --- !u!114 &916710131983631600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4026,7 +4054,7 @@ MonoBehaviour:
   ShootingSystem: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   BulletSpawnPoint: {fileID: 1703515485203811029}
   ImpactParticleSystem: {fileID: 9064919875212695174, guid: a5e1e2c4d2cd81f4abed6272a2b8187a, type: 3}
-  BulletTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
+  gun: {fileID: 0}
   ShootDelay: 0.5
   Mask:
     serializedVersion: 2
@@ -10043,19 +10071,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4162318676749512430}
     m_Modifications:
-    - target: {fileID: 6031565129433889708, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+    - target: {fileID: 0}
       propertyPath: BulletSpeed
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 6031565129433889708, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+    - target: {fileID: 0}
       propertyPath: AddBulletSpread
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6031565129433889708, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+    - target: {fileID: 0}
       propertyPath: BulletSpawnPoint
       value: 
       objectReference: {fileID: 1703515485203811029}
-    - target: {fileID: 6031565129433889708, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+    - target: {fileID: 0}
       propertyPath: ImpactParticleSystem
       value: 
       objectReference: {fileID: 9064919875212695174, guid: a5e1e2c4d2cd81f4abed6272a2b8187a, type: 3}
@@ -10107,8 +10135,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: gunPrefab
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6031565129433889708, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0adcefe2132845f5872faeaa91a884e, type: 3}
 --- !u!1 &8745859864504157089
 GameObject:
