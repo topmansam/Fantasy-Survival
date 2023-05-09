@@ -25,6 +25,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         slider.maxValue = health;
@@ -52,9 +53,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject == player)
+        if (other.gameObject == player)
         {
             playerInReach = true;
         }
@@ -62,7 +63,9 @@ public class EnemyManager : MonoBehaviour
 
     public void Hit(float damage)
     {
-        health -= damage;
+        Debug.Log("Enemy hit. Damage applied: " + damage);
+
+      health -= damage;
         slider.value = health;
         if (health <= 0)
         {
@@ -75,11 +78,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
         if (playerInReach)
         {
-            Debug.Log("attacking player");
+             
             attackDelayTimer += Time.deltaTime;
         }
 
@@ -95,9 +98,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject == player)
+        if (other.gameObject == player)
         {
             playerInReach = false;
             attackDelayTimer = 0;

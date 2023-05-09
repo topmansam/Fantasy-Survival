@@ -3215,6 +3215,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 544287729062773200, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 862342152454613473, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
       propertyPath: debugTransform
       value: 
@@ -3223,6 +3227,34 @@ PrefabInstance:
       propertyPath: aimVirtualCamera
       value: 
       objectReference: {fileID: 1601029212}
+    - target: {fileID: 862342152454613473, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: aimColliderLayerMask.m_Bits
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 862587712322966918, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863073306359782609, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863395145476514171, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009296466645672896, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164519813540845204, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: Mask.m_Bits
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164519813540845204, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
+      propertyPath: hitParticles
+      value: 
+      objectReference: {fileID: 4801399221355496861, guid: e67bf49c3ffba45c5a31dbfcbea0785a, type: 3}
     - target: {fileID: 2041183759696042125, guid: 173cf1089acb147fa903a11247da4f06, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 

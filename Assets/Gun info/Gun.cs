@@ -22,8 +22,9 @@ public class Gun : MonoBehaviour
     private LayerMask Mask;
     [SerializeField]
     private float BulletSpeed = 100;
-
-   // private Animator Animator;
+    public float damage = 25f;
+    public GameObject hitParticles;
+    // private Animator Animator;
     private float LastShootTime;
 
     private void Awake()
@@ -33,6 +34,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot(Vector3 targetPosition)
     {
+        Debug.Log("Shoot method called with target position: " + targetPosition);
         if (LastShootTime + ShootDelay < Time.time)
         {
             ShootingSystem.Play();
@@ -40,18 +42,38 @@ public class Gun : MonoBehaviour
 
             if (Physics.Raycast(BulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
             {
+                Debug.Log("Raycast hit: " + hit.transform.name);
+                // Check if the hit object has the EnemyManager component
+                EnemyManager enemyManager = hit.transform.GetComponent<EnemyManager>();
+                if (enemyManager != null)
+                {
+                    // Apply damage to the enemy
+                    enemyManager.Hit(damage);
+                    Debug.Log("Raycast hit: " + hit.transform.name);
+                    // Rest of the code
+                    Debug.Log("Damage applied: " + damage + " to enemy: " + hit.transform.name);
+
+                    // Create hitParticles at the hit point
+                    GameObject instParticles = Instantiate(hitParticles, hit.point, Quaternion.LookRotation(hit.normal));
+                    instParticles.transform.parent = hit.transform;
+                    Destroy(instParticles, 2f);
+                }
+
                 TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
                 LastShootTime = Time.time;
             }
             else
             {
+                Debug.Log("Raycast did not hit any colliders with the specified layer mask.");
+                // Rest of the code
                 TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, targetPosition, Vector3.zero, false));
                 LastShootTime = Time.time;
             }
         }
     }
+
 
     private Vector3 GetDirection()
     {

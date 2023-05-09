@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4431486355455974}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655697480745404}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658109449675542}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390499593602204}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4882914989025602}
   - component: {fileID: 33407584003241822}
   - component: {fileID: 23221504225770740}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: mace_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4036742745270630}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838408967005932}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4331977946558302}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4225599028856982}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: ' 1'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4256146112196090}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660162906152704}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4700708909579522}
   - component: {fileID: 137104908616848470}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: troll_body_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4335090411705190}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427292933141148}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4142909598818764}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4521729328323068}
   - component: {fileID: 137580856744658268}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: eyes_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,7 +774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4628980871768802}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940019554401630}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020487761096592}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4833411079282210}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4684122884355108}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934212667743622}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4753166047509048}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974071572368372}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1028,7 +1028,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4403013167899898}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4787001896997190}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1093,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4537781145380618}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4577074107969328}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323933520557704}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4006702192337626}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,7 +1222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4127471913620108}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArm22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4531841856598438}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4249023606813444}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003_dnu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4994521836820776}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1349,7 +1349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4417447774662772}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4080506598378474}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 4593450433339632}
   - component: {fileID: 33289220106592720}
   - component: {fileID: 23234506535101044}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1496,7 +1496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4098935792299826}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1527,7 +1527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4304295010756060}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArm22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4633171399809766}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1590,7 +1590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4397039267273290}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4800164223708896}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Spine2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1653,7 +1653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4952369329503598}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1684,7 +1684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4169193005168658}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,7 +1715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4625325902251386}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4202176088370098}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,7 +1779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4444545147352386}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1811,7 +1811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791910032003856}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1843,7 +1843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4687333640271922}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1874,7 +1874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4539691399957738}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1906,7 +1906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227087110833600}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1938,7 +1938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268637346232870}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,7 +1970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4080953261322694}
   - component: {fileID: 137230782902597206}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: upper_teeth_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2055,7 +2055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4809692258282018}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2086,7 +2086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439975391847634}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2118,7 +2118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4050513413570432}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2149,7 +2149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070235705099202}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2180,7 +2180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4737337615750890}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2211,7 +2211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903660876831184}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2243,7 +2243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4664926264486026}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,7 +2278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4396071286090460}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2310,7 +2310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4813823808717618}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2346,7 +2346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4475951016987656}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2377,7 +2377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745468838180032}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2409,7 +2409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4200588137408500}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2441,7 +2441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4572818450509404}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2473,7 +2473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4090525533798228}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2505,7 +2505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581076009326398}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4332197050605954}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2568,7 +2568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4789712164060596}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2600,7 +2600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791600005015164}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2632,7 +2632,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4196138228608536}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone001Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4192904675489504}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2694,7 +2694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4224897857669886}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2725,7 +2725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351840132440998}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2756,7 +2756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4413177626264882}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLegDigit32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2788,7 +2788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4263537562090484}
   - component: {fileID: 137593640664631780}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: tanga_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2890,7 +2890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4288643086943146}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2922,7 +2922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4499735716923542}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2959,7 +2959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4629551603989802}
   - component: {fileID: 137595766612037500}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3068,7 +3068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4546934507842542}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: second_handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3099,7 +3099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4182782367840834}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3131,7 +3131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4294769960038244}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3163,7 +3163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4848313460563652}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3204,7 +3204,7 @@ GameObject:
   - component: {fileID: 725475601}
   - component: {fileID: 8634225903521289654}
   - component: {fileID: 1548435888525779429}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: troll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3265,7 +3265,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862107410815556}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.4346983
   m_Height: 4.2539325
@@ -3307,7 +3307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyAnimator: {fileID: 95309135661054092}
-  damage: 20
+  damage: 1
   health: 100
   gameManager: {fileID: 0}
   slider: {fileID: 5593947231894927270}
@@ -3440,7 +3440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4753341918662464}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3471,7 +3471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4372399408723164}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3503,7 +3503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4048882699148550}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LArmDigit33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3534,7 +3534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4883363881508680}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_LLegDigit12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3565,7 +3565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4382840186331290}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3597,7 +3597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876018675311360}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub001Bone001Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3628,7 +3628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4673661197349246}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3659,7 +3659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4003651060629982}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3690,7 +3690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4740429229981184}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArmDigit41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3722,7 +3722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4992919859212638}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3753,7 +3753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4756619135133518}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3785,7 +3785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534359645959552}
   - component: {fileID: 137926420910819592}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: lower_teeth_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3870,7 +3870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4992226042082884}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3901,7 +3901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4357738594950802}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Hub003Bone001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3934,7 +3934,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4496074074128300}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_Spine1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3966,7 +3966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4769222090752852}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: cave_troll_RArm21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 2339835732495858617}
   - component: {fileID: 5286181005160740344}
   - component: {fileID: 5961316461718145708}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4101,7 +4101,7 @@ GameObject:
   - component: {fileID: 754817214488337780}
   - component: {fileID: 2684542208973130525}
   - component: {fileID: 8858042759556721516}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4177,7 +4177,7 @@ GameObject:
   - component: {fileID: 5940617259525174803}
   - component: {fileID: 5816155659681335875}
   - component: {fileID: 6807477801838134657}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4252,7 +4252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948549714320500312}
   - component: {fileID: 5593947231894927270}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
