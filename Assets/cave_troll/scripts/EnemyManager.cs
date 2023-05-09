@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour
     public Animator enemyAnimator;
     public float damage = 20f;
     public float health = 100;
+    [SerializeField]
     public GameManager gameManager;
     public Slider slider;
 
@@ -17,41 +18,41 @@ public class EnemyManager : MonoBehaviour
     public float attackAnimStartDelay;
     public float delayBetweenAttacks;
 
-    public AudioSource audioSource;
-    public AudioClip[] zombieSounds;
+    //public AudioSource audioSource;
+    //public AudioClip[] zombieSounds;
 
-    // Start is called before the first frame update
     void Start()
     {
-
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         slider.maxValue = health;
         slider.value = health;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        /*
         if (!audioSource.isPlaying)
         {
             audioSource.clip = zombieSounds[Random.Range(0, zombieSounds.Length)];
             audioSource.Play();
         }
 
+        */
         slider.transform.LookAt(player.transform);
 
         GetComponent<NavMeshAgent>().destination = player.transform.position;
 
         if (GetComponent<NavMeshAgent>().velocity.magnitude > 1 && !isWalking && !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("attack1"))
         {
-            enemyAnimator.SetTrigger("run");
+            enemyAnimator.SetBool("run", true);
+            enemyAnimator.SetBool("walk", false);
             isWalking = true;
         }
         else if (GetComponent<NavMeshAgent>().velocity.magnitude <= 1 && isWalking)
         {
-            enemyAnimator.ResetTrigger("run");
-            enemyAnimator.SetTrigger("walk");
+            enemyAnimator.SetBool("walk", true);
+            enemyAnimator.SetBool("run", false);
             isWalking = false;
         }
     }
@@ -66,8 +67,6 @@ public class EnemyManager : MonoBehaviour
 
     public void Hit(float damage)
     {
-
-
         health -= damage;
         slider.value = health;
         if (health <= 0)
@@ -79,16 +78,10 @@ public class EnemyManager : MonoBehaviour
             Destroy(GetComponent<EnemyManager>());
             Destroy(GetComponent<CapsuleCollider>());
         }
-        else {
-            //enemyAnimator.SetTrigger("take_damage");
-        }
-
-
     }
 
     private void OnTriggerStay(Collider other)
     {
-
         if (playerInReach)
         {
             attackDelayTimer += Time.deltaTime;
@@ -98,21 +91,17 @@ public class EnemyManager : MonoBehaviour
             playerInReach = false;
         }
 
-
         if (attackDelayTimer >= delayBetweenAttacks - attackAnimStartDelay && attackDelayTimer <= delayBetweenAttacks && playerInReach)
         {
-
             enemyAnimator.SetTrigger("attack1");
         }
 
         if (attackDelayTimer >= delayBetweenAttacks && playerInReach)
         {
-
             player.GetComponent<PlayerManager>().Hit(damage);
             attackDelayTimer = 0;
         }
     }
-
 
     private void OnTriggerExit(Collider other)
     {
