@@ -24,16 +24,20 @@ public class Gun : MonoBehaviour
     private float BulletSpeed = 100;
     public float damage = 25f;
     public GameObject hitParticles;
+    public AudioClip gunShot;
+    public AudioSource audioSource;
     // private Animator Animator;
     private float LastShootTime;
 
-    private void Awake()
+    private void Start()
     {
         //Animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Shoot(Vector3 targetPosition)
     {
+        audioSource.PlayOneShot(gunShot);
         Debug.Log("Shoot method called with target position: " + targetPosition);
         if (LastShootTime + ShootDelay < Time.time)
         {
