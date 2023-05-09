@@ -3267,10 +3267,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.4346983
-  m_Height: 4.2539325
+  m_Radius: 2
+  m_Height: 15.276287
   m_Direction: 1
-  m_Center: {x: 0.054305077, y: 1.6269662, z: 0.045721292}
+  m_Center: {x: 0.052402496, y: 1.6269617, z: 0.9863615}
 --- !u!195 &725475600
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3312,8 +3312,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   slider: {fileID: 5593947231894927270}
   playerInReach: 0
-  attackAnimStartDelay: 0
-  delayBetweenAttacks: 0
+  attackAnimStartDelay: 0.5
+  delayBetweenAttacks: 1
   audioSource: {fileID: 0}
   zombieSounds:
   - {fileID: 8300000, guid: 4c285a791c630e7478685ebcf5a3cc19, type: 3}

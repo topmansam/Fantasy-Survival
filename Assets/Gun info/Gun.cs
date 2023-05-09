@@ -37,10 +37,11 @@ public class Gun : MonoBehaviour
 
     public void Shoot(Vector3 targetPosition)
     {
-        audioSource.PlayOneShot(gunShot);
+         
         Debug.Log("Shoot method called with target position: " + targetPosition);
         if (LastShootTime + ShootDelay < Time.time)
         {
+            audioSource.PlayOneShot(gunShot);
             ShootingSystem.Play();
             Vector3 direction = (targetPosition - BulletSpawnPoint.position).normalized;
 

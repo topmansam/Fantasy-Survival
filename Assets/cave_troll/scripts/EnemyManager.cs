@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-
+    private bool isWalking = false;
     public GameObject player;
     public Animator enemyAnimator;
     public float damage = 20f;
@@ -25,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         slider.maxValue = health;
@@ -42,14 +40,19 @@ public class EnemyManager : MonoBehaviour
         }
 
         slider.transform.LookAt(player.transform);
+
         GetComponent<NavMeshAgent>().destination = player.transform.position;
-        if (GetComponent<NavMeshAgent>().velocity.magnitude > 1)
+
+        if (GetComponent<NavMeshAgent>().velocity.magnitude > 1 && !isWalking && !enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("attack1"))
         {
-            enemyAnimator.SetBool("isRunning", true);
+            enemyAnimator.SetTrigger("run");
+            isWalking = true;
         }
-        else
+        else if (GetComponent<NavMeshAgent>().velocity.magnitude <= 1 && isWalking)
         {
-            enemyAnimator.SetBool("isRunning", false);
+            enemyAnimator.ResetTrigger("run");
+            enemyAnimator.SetTrigger("walk");
+            isWalking = false;
         }
     }
 
@@ -63,45 +66,59 @@ public class EnemyManager : MonoBehaviour
 
     public void Hit(float damage)
     {
-        Debug.Log("Enemy hit. Damage applied: " + damage);
 
-      health -= damage;
+
+        health -= damage;
         slider.value = health;
         if (health <= 0)
         {
-            enemyAnimator.SetTrigger("isDead");
+            enemyAnimator.SetTrigger("death");
             gameManager.enemiesAlive--;
             Destroy(gameObject, 10f);
             Destroy(GetComponent<NavMeshAgent>());
             Destroy(GetComponent<EnemyManager>());
             Destroy(GetComponent<CapsuleCollider>());
         }
+        else {
+            //enemyAnimator.SetTrigger("take_damage");
+        }
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
+
         if (playerInReach)
         {
-             
             attackDelayTimer += Time.deltaTime;
         }
+        else
+        {
+            playerInReach = false;
+        }
+
 
         if (attackDelayTimer >= delayBetweenAttacks - attackAnimStartDelay && attackDelayTimer <= delayBetweenAttacks && playerInReach)
         {
-            enemyAnimator.SetTrigger("isAttacking");
+
+            enemyAnimator.SetTrigger("attack1");
         }
 
         if (attackDelayTimer >= delayBetweenAttacks && playerInReach)
         {
+
             player.GetComponent<PlayerManager>().Hit(damage);
             attackDelayTimer = 0;
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
         {
+            Debug.Log("leaving:");
             playerInReach = false;
             attackDelayTimer = 0;
         }

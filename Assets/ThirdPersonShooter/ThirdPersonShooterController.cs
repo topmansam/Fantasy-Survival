@@ -87,6 +87,8 @@ public class ThirdPersonShooterController : MonoBehaviour
         if (starterAssetsInputs.shoot)
         {
             gun.Shoot(mouseWorldPosition);
+            /*
+       
 
             if (hitTransform != null)
             {
@@ -99,7 +101,7 @@ public class ThirdPersonShooterController : MonoBehaviour
                     Instantiate(vfxHitRed, mouseWorldPosition, Quaternion.identity);
                 }
             }
-
+            */
             starterAssetsInputs.shoot = false;
         }
     }
