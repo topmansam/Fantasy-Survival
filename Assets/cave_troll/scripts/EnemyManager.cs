@@ -9,9 +9,8 @@ public class EnemyManager : MonoBehaviour
     public Animator enemyAnimator;
     public float damage = 20f;
     public float health = 100;
-    [SerializeField]
     public GameManager gameManager;
-    public Slider slider;
+    //public Slider slider;
 
     public bool playerInReach;
     private float attackDelayTimer;
@@ -25,8 +24,8 @@ public class EnemyManager : MonoBehaviour
     {
         //audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
-        slider.maxValue = health;
-        slider.value = health;
+        //slider.maxValue = health;
+       // slider.value = health;
     }
 
     void Update()
@@ -39,7 +38,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         */
-        slider.transform.LookAt(player.transform);
+        //slider.transform.LookAt(player.transform);
 
         GetComponent<NavMeshAgent>().destination = player.transform.position;
 
@@ -68,7 +67,7 @@ public class EnemyManager : MonoBehaviour
     public void Hit(float damage)
     {
         health -= damage;
-        slider.value = health;
+        //slider.value = health;
         if (health <= 0)
         {
             enemyAnimator.SetTrigger("death");

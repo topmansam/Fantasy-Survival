@@ -2370,7 +2370,6 @@ MonoBehaviour:
   damage: 20
   health: 100
   gameManager: {fileID: 0}
-  slider: {fileID: 0}
   playerInReach: 0
   attackAnimStartDelay: 0.5
   delayBetweenAttacks: 1
