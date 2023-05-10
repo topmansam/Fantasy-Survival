@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
- 
-using UnityEngine;
 using Cinemachine;
 using StarterAssets;
-using UnityEngine.InputSystem;
+using UnityEngine;
 using UnityEngine.Animations.Rigging;
-using UnityEngine.UI;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
@@ -22,6 +17,12 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform vfxHitGreen;
     [SerializeField] private Transform vfxHitRed;
     public Gun gun;
+    public Gun pistolGun;
+    public Gun assaultRifleGun;
+    public GameObject pistol;
+    public GameObject assaultRifle;
+    private int pistolLayerIndex;
+    private int assaultRifleLayerIndex;
 
     private float LastShootTime;
     private ThirdPersonController thirdPersonController;
@@ -33,13 +34,21 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private void Awake()
     {
+
+        gun = pistolGun;
+        pistol.SetActive(true);
+        assaultRifle.SetActive(false);
+
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         animator = GetComponent<Animator>();
+        pistolLayerIndex = animator.GetLayerIndex("PistolLayer");
+        assaultRifleLayerIndex = animator.GetLayerIndex("AssaultRifleLayer");
     }
 
     private void Update()
     {
+        SwitchWeapon();
         aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20f);
         Vector3 mouseWorldPosition = Vector3.zero;
 
@@ -62,12 +71,22 @@ public class ThirdPersonShooterController : MonoBehaviour
 
         if (starterAssetsInputs.aim)
         {
-             
             aimRigWeight = 1f;
             aimVirtualCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(aimSensitivity);
             thirdPersonController.SetRotateOnMove(false);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 13f));
+
+            if (pistol.activeSelf)
+            {
+                animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 13f));
+
+                animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
+            }
+            else if (assaultRifle.activeSelf)
+            {
+                animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 1f, Time.deltaTime * 13f));
+                animator.SetLayerWeight(pistolLayerIndex, 0f);
+            }
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
@@ -81,15 +100,15 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 13f));
+
+            animator.SetLayerWeight(pistolLayerIndex, 0f);
+            animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
         }
 
         if (starterAssetsInputs.shoot)
         {
             gun.Shoot(mouseWorldPosition);
             /*
-       
-
             if (hitTransform != null)
             {
                 if (hitTransform.GetComponent<BulletTarget>() != null)
@@ -102,9 +121,28 @@ public class ThirdPersonShooterController : MonoBehaviour
                 }
             }
             */
+
             starterAssetsInputs.shoot = false;
         }
     }
+    private void SwitchWeapon()
+    {
+        if (starterAssetsInputs.switchToPistol)
+        {
+            pistol.SetActive(true);
+            assaultRifle.SetActive(false);
+            gun = pistolGun; // Set the gun variable to the pistol's Gun script instance
+            starterAssetsInputs.switchToPistol = false;
+            Debug.Log("Switched to Pistol");
+        }
+        else if (starterAssetsInputs.switchToAssaultRifle)
+        {
+            pistol.SetActive(false);
+            assaultRifle.SetActive(true);
+            gun = assaultRifleGun; // Set the gun variable to the assault rifle's Gun script instance
+            starterAssetsInputs.switchToAssaultRifle = false;
+            Debug.Log("Switched to Assault Rifle");
+        }
+    }
 
-   
 }

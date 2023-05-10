@@ -14,6 +14,8 @@ namespace StarterAssets
 		public bool sprint;
 		public bool aim;
         public bool shoot;
+        public bool switchToPistol;
+        public bool switchToAssaultRifle;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -57,6 +59,16 @@ namespace StarterAssets
         {
             ShootInput(value.isPressed);
         }
+        public void OnSwitchToPistol(InputValue value)
+        {
+            SwitchToPistolInput(value.isPressed);
+        }
+
+        public void OnSwitchToAssaultRifle(InputValue value)
+        {
+            SwitchToAssaultRifleInput(value.isPressed);
+        }
+
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -86,9 +98,19 @@ namespace StarterAssets
         {
             aim = newAimState;
         }
-
+		 
         public void ShootInput(bool newShootState) {
             shoot = newShootState;
+        }
+		  
+        public void SwitchToPistolInput(bool newSwitchToPistolState)
+        {
+            switchToPistol = newSwitchToPistolState;
+        }
+
+        public void SwitchToAssaultRifleInput(bool newSwitchToAssaultRifleState)
+        {
+            switchToAssaultRifle = newSwitchToAssaultRifleState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

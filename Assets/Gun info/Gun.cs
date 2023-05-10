@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private ParticleSystem ImpactParticleSystem;
     [SerializeField]
-    private TrailRenderer BulletTrail;
+   private TrailRenderer BulletTrail;
     [SerializeField]
     private float ShootDelay = 0.5f;
     [SerializeField]
@@ -28,8 +28,9 @@ public class Gun : MonoBehaviour
     public AudioSource audioSource;
     // private Animator Animator;
     private float LastShootTime;
+     
 
-    private void Start()
+    private void Awake()
     {
         //Animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -41,7 +42,11 @@ public class Gun : MonoBehaviour
         Debug.Log("Shoot method called with target position: " + targetPosition);
         if (LastShootTime + ShootDelay < Time.time)
         {
-            audioSource.PlayOneShot(gunShot);
+            if (gameObject.activeInHierarchy && audioSource.enabled) // Add this check
+            {
+                audioSource.PlayOneShot(gunShot);
+            }
+         
             ShootingSystem.Play();
             Vector3 direction = (targetPosition - BulletSpawnPoint.position).normalized;
 
@@ -63,17 +68,24 @@ public class Gun : MonoBehaviour
                     instParticles.transform.parent = hit.transform;
                     Destroy(instParticles, 2f);
                 }
-
-                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
+                if (gameObject.activeInHierarchy) // Check if the game object is active
+                {
+                    TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                    StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, true));
+                }
+               
                 LastShootTime = Time.time;
             }
             else
             {
                 Debug.Log("Raycast did not hit any colliders with the specified layer mask.");
                 // Rest of the code
-                TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
-                StartCoroutine(SpawnTrail(trail, targetPosition, Vector3.zero, false));
+                if (gameObject.activeInHierarchy) // Check if the game object is active
+                {
+                    TrailRenderer trail = Instantiate(BulletTrail, BulletSpawnPoint.position, Quaternion.identity);
+                    StartCoroutine(SpawnTrail(trail, targetPosition, Vector3.zero, false));
+                }
+            
                 LastShootTime = Time.time;
             }
         }
@@ -100,8 +112,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, bool MadeImpact)
     {
-        // This has been updated from the video implementation to fix a commonly raised issue about the bullet trails
-        // moving slowly when hitting something close, and not
+          
         Vector3 startPosition = Trail.transform.position;
         float distance = Vector3.Distance(Trail.transform.position, HitPoint);
         float remainingDistance = distance;
