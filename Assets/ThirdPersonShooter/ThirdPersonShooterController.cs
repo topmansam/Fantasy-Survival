@@ -29,6 +29,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     private StarterAssetsInputs starterAssetsInputs;
     private Animator animator;
     public float aimRigWeight;
+    
 
 
 
@@ -44,7 +45,11 @@ public class ThirdPersonShooterController : MonoBehaviour
         animator = GetComponent<Animator>();
         pistolLayerIndex = animator.GetLayerIndex("PistolLayer");
         assaultRifleLayerIndex = animator.GetLayerIndex("AssaultRifleLayer");
+
+       
+
     }
+    
 
     private void Update()
     {
@@ -133,7 +138,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             assaultRifle.SetActive(false);
             gun = pistolGun; // Set the gun variable to the pistol's Gun script instance
             starterAssetsInputs.switchToPistol = false;
-            Debug.Log("Switched to Pistol");
+           // Debug.Log("Switched to Pistol");
         }
         else if (starterAssetsInputs.switchToAssaultRifle)
         {
@@ -141,7 +146,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             assaultRifle.SetActive(true);
             gun = assaultRifleGun; // Set the gun variable to the assault rifle's Gun script instance
             starterAssetsInputs.switchToAssaultRifle = false;
-            Debug.Log("Switched to Assault Rifle");
+            //Debug.Log("Switched to Assault Rifle");
         }
     }
 

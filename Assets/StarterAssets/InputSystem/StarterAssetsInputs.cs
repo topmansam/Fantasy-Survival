@@ -54,11 +54,12 @@ namespace StarterAssets
         {
             AimInput(value.isPressed);
         }
-
+		/*
         public void OnShoot(InputValue value) 
         {
             ShootInput(value.isPressed);
         }
+		*/
         public void OnSwitchToPistol(InputValue value)
         {
             SwitchToPistolInput(value.isPressed);
@@ -98,11 +99,11 @@ namespace StarterAssets
         {
             aim = newAimState;
         }
-		 
+		 /*
         public void ShootInput(bool newShootState) {
             shoot = newShootState;
         }
-		  
+		  */
         public void SwitchToPistolInput(bool newSwitchToPistolState)
         {
             switchToPistol = newSwitchToPistolState;

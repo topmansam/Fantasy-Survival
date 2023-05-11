@@ -106,7 +106,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            Debug.Log("leaving:");
+            //Debug.Log("leaving:");
             playerInReach = false;
             attackDelayTimer = 0;
         }

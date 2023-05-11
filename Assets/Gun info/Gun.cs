@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
     public void Shoot(Vector3 targetPosition)
     {
          
-        Debug.Log("Shoot method called with target position: " + targetPosition);
+        //Debug.Log("Shoot method called with target position: " + targetPosition);
         if (LastShootTime + ShootDelay < Time.time)
         {
             if (gameObject.activeInHierarchy && audioSource.enabled) // Add this check
@@ -52,16 +52,16 @@ public class Gun : MonoBehaviour
 
             if (Physics.Raycast(BulletSpawnPoint.position, direction, out RaycastHit hit, float.MaxValue, Mask))
             {
-                Debug.Log("Raycast hit: " + hit.transform.name);
+                //Debug.Log("Raycast hit: " + hit.transform.name);
                 // Check if the hit object has the EnemyManager component
                 EnemyManager enemyManager = hit.transform.GetComponent<EnemyManager>();
                 if (enemyManager != null)
                 {
                     // Apply damage to the enemy
                     enemyManager.Hit(damage);
-                    Debug.Log("Raycast hit: " + hit.transform.name);
+                   // Debug.Log("Raycast hit: " + hit.transform.name);
                     // Rest of the code
-                    Debug.Log("Damage applied: " + damage + " to enemy: " + hit.transform.name);
+                  //  Debug.Log("Damage applied: " + damage + " to enemy: " + hit.transform.name);
 
                     // Create hitParticles at the hit point
                     GameObject instParticles = Instantiate(hitParticles, hit.point, Quaternion.LookRotation(hit.normal));
@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour
             }
             else
             {
-                Debug.Log("Raycast did not hit any colliders with the specified layer mask.");
+                //Debug.Log("Raycast did not hit any colliders with the specified layer mask.");
                 // Rest of the code
                 if (gameObject.activeInHierarchy) // Check if the game object is active
                 {
