@@ -110,25 +110,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
         }
 
-        if (starterAssetsInputs.shoot)
-        {
-            gun.Shoot(mouseWorldPosition);
-            /*
-            if (hitTransform != null)
-            {
-                if (hitTransform.GetComponent<BulletTarget>() != null)
-                {
-                    Instantiate(vfxHitGreen, mouseWorldPosition, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(vfxHitRed, mouseWorldPosition, Quaternion.identity);
-                }
-            }
-            */
-
-            starterAssetsInputs.shoot = false;
-        }
+        
     }
     private void SwitchWeapon()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experiemntal.Rendering.Universal;
 
 public class Weapon : MonoBehaviour
 {
@@ -24,12 +25,16 @@ public class Weapon : MonoBehaviour
     public GameObject hitParticles;
     private float BulletSpeed = 100;
 
+    public AudioClip gunShot;
+    public AudioSource audioSource;
+
     [SerializeField]
     private Transform BulletSpawnPoint;
     [SerializeField]
     private TrailRenderer BulletTrail;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         controls = new StarterAssetsExtra();
         ammoLeft = magazineSize;
         readyToShoot = true;
@@ -42,7 +47,8 @@ public class Weapon : MonoBehaviour
     {
         if(isShooting && readyToShoot && !reloading && ammoLeft > 0)
         {
-            PerformShot(); 
+            PerformShot();
+            audioSource.PlayOneShot(gunShot);
         }
     }
     private void StartShot() {
