@@ -5,6 +5,7 @@ using UnityEngine.Animations.Rigging;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
+    private StarterAssetsExtra controls;
 
     [SerializeField] private Rig aimRig;
     [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
@@ -29,7 +30,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     private StarterAssetsInputs starterAssetsInputs;
     private Animator animator;
     public float aimRigWeight;
-    
+    public Weapon weapon;
 
 
 
@@ -46,10 +47,10 @@ public class ThirdPersonShooterController : MonoBehaviour
         pistolLayerIndex = animator.GetLayerIndex("PistolLayer");
         assaultRifleLayerIndex = animator.GetLayerIndex("AssaultRifleLayer");
 
-       
+
 
     }
-    
+
 
     private void Update()
     {
@@ -83,9 +84,17 @@ public class ThirdPersonShooterController : MonoBehaviour
 
             if (pistol.activeSelf)
             {
-                animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 13f));
-
+                animator.SetLayerWeight(1, 1f);
+                animator.SetBool("isAiming", true);
                 animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
+                if (weapon.isShooting && weapon.readyToShoot && !weapon.reloading && weapon.ammoLeft > 0)
+                {
+                    animator.SetBool("isShooting", true);
+                }
+                else
+                {
+                    animator.SetBool("isShooting", false); // Reset to false when not shooting
+                }
             }
             else if (assaultRifle.activeSelf)
             {
@@ -101,16 +110,31 @@ public class ThirdPersonShooterController : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isAiming", false);
+
+            // Hipfiring
+            if (pistol.activeSelf)
+            {
+                animator.SetLayerWeight(1, 1f);
+                if (weapon.isShooting && weapon.readyToShoot && !weapon.reloading && weapon.ammoLeft > 0)
+                {
+                    animator.SetBool("isShooting", true);
+                }
+                else
+                {
+                    animator.SetBool("isShooting", false); // Reset to false when not shooting
+                }
+                animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
+            }
             aimRigWeight = 0f;
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-
             animator.SetLayerWeight(pistolLayerIndex, 0f);
             animator.SetLayerWeight(assaultRifleLayerIndex, 0f);
         }
 
-        
+
     }
     private void SwitchWeapon()
     {
@@ -120,7 +144,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             assaultRifle.SetActive(false);
             gun = pistolGun; // Set the gun variable to the pistol's Gun script instance
             starterAssetsInputs.switchToPistol = false;
-           // Debug.Log("Switched to Pistol");
+            // Debug.Log("Switched to Pistol");
         }
         else if (starterAssetsInputs.switchToAssaultRifle)
         {

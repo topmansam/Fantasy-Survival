@@ -13,8 +13,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float fireRate, reloadTime;
     [SerializeField] private bool isAutomatic;
     [SerializeField] private int magazineSize;
-    private bool isShooting, readyToShoot, reloading;
-    private int ammoLeft;
+    public bool isShooting, readyToShoot, reloading;
+    public int ammoLeft;
     [SerializeField] private GameObject bulletHolePrefab;
     [SerializeField] private float bulletHoleLifeSpan;
     [SerializeField] private ParticleSystem muzzleFlash;
@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     private Transform BulletSpawnPoint;
     [SerializeField]
     private TrailRenderer BulletTrail;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -45,17 +46,19 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
-        if(isShooting && readyToShoot && !reloading && ammoLeft > 0)
+        if (isShooting && readyToShoot && !reloading && ammoLeft > 0)
         {
             PerformShot();
             audioSource.PlayOneShot(gunShot);
         }
     }
-    private void StartShot() {
+    private void StartShot()
+    {
         isShooting = true;
 
     }
-    private void EndShot() {
+    private void EndShot()
+    {
         isShooting = false;
     }
 
@@ -114,30 +117,33 @@ public class Weapon : MonoBehaviour
 
 
 
-    private void ResetShot() {
+    private void ResetShot()
+    {
         readyToShoot = true;
-        
+
 
     }
-    private void Reload() {
+    private void Reload()
+    {
         reloading = true;
         //Debug.Log("Im Reloading");
         Invoke("ReloadFinish", reloadTime);
     }
-    private void ReloadFinish() {
+    private void ReloadFinish()
+    {
         ammoLeft = magazineSize;
         reloading = false;
     }
     private void OnEnable()
     {
         controls.Enable();
-     
+
     }
 
     private void OnDisable()
     {
         controls.Disable();
-       
+
     }
     private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 HitPoint, Vector3 HitNormal, bool MadeImpact)
     {

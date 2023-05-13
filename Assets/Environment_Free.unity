@@ -2900,7 +2900,7 @@ Animator:
   m_GameObject: {fileID: 6637204404001818370}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2db990d71e8e14d81bcacd0e36160d95, type: 2}
-  m_Controller: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
+  m_Controller: {fileID: 9100000, guid: 65c33c936df9f476fb4c7d8ff78d122f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7750,6 +7750,10 @@ MonoBehaviour:
   reloadTime: 1
   isAutomatic: 1
   magazineSize: 30
+  isShooting: 0
+  readyToShoot: 0
+  reloading: 0
+  ammoLeft: 0
   bulletHolePrefab: {fileID: 175114254}
   bulletHoleLifeSpan: 3
   muzzleFlash: {fileID: 8808090098639794423}
@@ -8576,6 +8580,7 @@ MonoBehaviour:
   pistol: {fileID: 8398396931691188578}
   assaultRifle: {fileID: 6454897646806653915}
   aimRigWeight: 0
+  weapon: {fileID: 8398396931691188580}
 --- !u!1 &7012109996883298078
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,6 +10358,10 @@ MonoBehaviour:
   reloadTime: 1
   isAutomatic: 0
   magazineSize: 20
+  isShooting: 0
+  readyToShoot: 0
+  reloading: 0
+  ammoLeft: 0
   bulletHolePrefab: {fileID: 175114254}
   bulletHoleLifeSpan: 3
   muzzleFlash: {fileID: 8808090098639794423}
