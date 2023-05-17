@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: ca1c2b353d21cdf409e39b740f11bea8
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      74: -7518070035226018700
+    second: Armature|char_idle
+  - first:
+      74: -4313800448903597876
+    second: Armature|char_jumping
+  - first:
+      74: 8526005567607893125
+    second: Armature|char_sprint_forward
+  - first:
+      74: 4254202543183026835
+    second: Armature|char_sprint_forward_left
+  - first:
+      74: -2584467645184224081
+    second: Armature|char_sprint_forward_right
+  - first:
+      74: -8127003885765053799
+    second: Armature|char_strafe_back
+  - first:
+      74: -1406752082875528542
+    second: Armature|char_strafe_back_left
+  - first:
+      74: 4960086345576814272
+    second: Armature|char_strafe_back_right
+  - first:
+      74: -7384099321289560316
+    second: Armature|char_strafe_forward
+  - first:
+      74: 3617533922634432085
+    second: Armature|char_strafe_forward_left
+  - first:
+      74: 6770015845885175611
+    second: Armature|char_strafe_forward_right
+  - first:
+      74: -7150273846346854278
+    second: Armature|char_strafe_left
+  - first:
+      74: 9208405610256247926
+    second: Armature|char_strafe_right
+  - first:
+      74: -760850797010905994
+    second: Armature|char_walk_forward
+  - first:
+      74: 8219469267324074999
+    second: Armature|wep_assault_equip
+  - first:
+      74: -1804040579939461518
+    second: Armature|wep_assault_reload
+  - first:
+      74: 4138228296438307456
+    second: Armature|wep_pistol_equip
+  - first:
+      74: -7658663275834890225
+    second: Armature|wep_pistol_reload
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
