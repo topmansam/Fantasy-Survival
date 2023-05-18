@@ -10,24 +10,23 @@ public class RaycastWeapon : MonoBehaviour
         public Vector3 initialPosition;
         public Vector3 initialVelocity;
         public TrailRenderer tracer;
-        // public int bounce;
+        //public int bounce;
     }
 
+    public ActiveWeapon.WeaponSlot weaponSlot;
     public bool isFiring = false;
     public int fireRate = 25;
     public float bulletSpeed = 1000.0f;
     public float bulletDrop = 0.0f;
-    //public int maxBounces = 10;
+    //public int maxBounces = 0;
     public bool debug = false;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
+    public string weaponName;
 
     public Transform raycastOrigin;
     public Transform raycastDestination;
-    public AnimationClip weaponAnimation;
-    public string weaponName;
-    
 
     Ray ray;
     RaycastHit hitInfo;
@@ -50,24 +49,40 @@ public class RaycastWeapon : MonoBehaviour
         bullet.time = 0.0f;
         bullet.tracer = Instantiate(tracerEffect, position, Quaternion.identity);
         bullet.tracer.AddPosition(position);
-        // bullet.bounce = maxBounces;
+        //bullet.bounce = maxBounces;
+        Color color = Random.ColorHSV(0.46f, 0.61f);
+        float intensity = 20.0f;
+        Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
+        bullet.tracer.material.SetColor("_EmissionColor", rgb);
         return bullet;
     }
 
     public void StartFiring()
     {
         isFiring = true;
-        if (accumulatedTime > 0.0f)
+        accumulatedTime = 0.0f;
+    }
+
+    public void UpdateWeapon(float deltaTime)
+    {
+        if (Input.GetButtonDown("Fire1"))
         {
-            accumulatedTime = Time.deltaTime;
+            StartFiring();
         }
-        //accumulatedTime = 0.0f;
-        //FireBullet();
+        if (isFiring)
+        {
+            UpdateFiring(deltaTime);
+        }
+        UpdateBullets(deltaTime);
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopFiring();
+        }
     }
 
     public void UpdateFiring(float deltaTime)
     {
-
+        accumulatedTime += deltaTime;
         float fireInterval = 1.0f / fireRate;
         while (accumulatedTime >= 0.0f)
         {
@@ -78,8 +93,6 @@ public class RaycastWeapon : MonoBehaviour
 
     public void UpdateBullets(float deltaTime)
     {
-        accumulatedTime += deltaTime;
-
         SimulateBullets(deltaTime);
         DestroyBullets();
     }
@@ -118,7 +131,14 @@ public class RaycastWeapon : MonoBehaviour
             end = hitInfo.point;
             debugColor = Color.red;
 
+            
 
+            // Collision impulse
+            var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
+            if (rb2d)
+            {
+                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
         }
 
         bullet.tracer.transform.position = end;
