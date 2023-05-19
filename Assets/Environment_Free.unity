@@ -1480,22 +1480,6 @@ Transform:
   m_Father: {fileID: 1204853945}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &923260466
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83589761285482081}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &923260476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,20 +1494,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 15
   aimDuration: 0.18
---- !u!136 &923260477
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83589761285482081}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &923260479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,6 +1506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a30b09c237343d48b6b6440fbe7a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 2
+  gravity: 20
+  stepDown: 0.3
+  airControl: 2.5
+  jumpDamp: 0.5
+  groundSpeed: 1.2
+  pushPower: 2
 --- !u!1001 &944732306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4806,13 +4783,12 @@ GameObject:
   - component: {fileID: 7747638159031856335}
   - component: {fileID: 2802716431343875770}
   - component: {fileID: 5935212898275403279}
-  - component: {fileID: 923260466}
-  - component: {fileID: 923260477}
   - component: {fileID: 923260476}
   - component: {fileID: 923260479}
   - component: {fileID: 7747638159031856336}
   - component: {fileID: 7747638159031856337}
   - component: {fileID: 7747638159031856338}
+  - component: {fileID: 7747638159031856339}
   m_Layer: 0
   m_Name: Sam
   m_TagString: Untagged
@@ -9711,6 +9687,24 @@ MonoBehaviour:
   activeWeapon: {fileID: 7747638159031856337}
   leftHand: {fileID: 5985070558915988416}
   ammoWidget: {fileID: 1323463496}
+--- !u!143 &7747638159031856339
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83589761285482081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.6
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &7785753533678510030
 MonoBehaviour:
   m_ObjectHideFlags: 0
