@@ -28,12 +28,15 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil recoil;
+    public GameObject magazine; 
 
     Ray ray;
     RaycastHit hitInfo;
     float accumulatedTime;
     List<Bullet> bullets = new List<Bullet>();
     float maxLifetime = 3.0f;
+    public int ammoCount;
+    public int clipSize;
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
@@ -157,6 +160,8 @@ public class RaycastWeapon : MonoBehaviour
 
     private void FireBullet()
     {
+        if (ammoCount <= 0) return;
+        ammoCount--;
         foreach (var particle in muzzleFlash)
         {
             particle.Emit(1);

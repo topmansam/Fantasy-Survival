@@ -13,6 +13,7 @@ public class ActiveWeapon : MonoBehaviour
     public Animator rigController;
     public Transform[] weaponSlots;
     public Cinemachine.CinemachineFreeLook playerCamera;
+    public AmmoWidget ammoWidget;
 
     RaycastWeapon[] equipped_weapons = new RaycastWeapon[2];
     int activeWeaponIndex;
@@ -26,6 +27,10 @@ public class ActiveWeapon : MonoBehaviour
         {
             Equip(existingWeapon);
         }
+    }
+    public RaycastWeapon GetActiveWeapon()
+    {
+        return GetWeapon(activeWeaponIndex);
     }
 
     RaycastWeapon GetWeapon(int index)
@@ -78,6 +83,7 @@ public class ActiveWeapon : MonoBehaviour
         equipped_weapons[weaponSlotIndex] = weapon;
 
         SetActiveWeapon(newWeapon.weaponSlot);
+        ammoWidget.Refresh(weapon.ammoCount);
     }
 
     void ToggleActiveWeapon()
