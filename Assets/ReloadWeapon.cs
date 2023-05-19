@@ -5,40 +5,41 @@ using UnityEngine;
 public class ReloadWeapon : MonoBehaviour
 {
     public Animator rigController;
-    public WeaponAnimatonEvents animatonEvents;
+    public WeaponAnimationEvents animationEvents;
     public ActiveWeapon activeWeapon;
     public Transform leftHand;
     public AmmoWidget ammoWidget;
-
+    public bool isReloading;
 
     GameObject magazineHand;
 
     // Start is called before the first frame update
     void Start()
     {
-        animatonEvents.WeaponAnimationEvent.AddListener(OnAnimationEvent);
-        
+        animationEvents.WeaponAnimationEvent.AddListener(OnAnimationEvent);
     }
-  
 
     // Update is called once per frame
     void Update()
     {
-        
-            RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
-            if (weapon)
+        RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
+        if (weapon)
+        {
+            if (Input.GetKeyDown(KeyCode.R) || weapon.ammoCount <= 0)
             {
-            if (Input.GetKeyDown(KeyCode.R) || weapon.ammoCount<=0)
-            {
+                isReloading = true;
                 rigController.SetTrigger("reload_weapon");
             }
+
             if (weapon.isFiring)
             {
-                ammoWidget.Refresh(weapon.ammoCount); 
+                ammoWidget.Refresh(weapon.ammoCount);
             }
         }
     }
-    void OnAnimationEvent(string eventName) {
+
+    void OnAnimationEvent(string eventName)
+    {
         Debug.Log(eventName);
         switch (eventName)
         {
@@ -54,26 +55,30 @@ public class ReloadWeapon : MonoBehaviour
             case "attach_magazine":
                 AttachMagazine();
                 break;
-
         }
-            }
+    }
+
     void DetachMagazine()
     {
         RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
         magazineHand = Instantiate(weapon.magazine, leftHand, true);
         weapon.magazine.SetActive(false);
     }
+
     void DropMagazine()
     {
-        GameObject droppedMagazine =Instantiate(magazineHand, magazineHand.transform.position, magazineHand.transform.rotation);
-        droppedMagazine.AddComponent<Rigidbody>();
+        GameObject droppedMagazine = Instantiate(magazineHand, magazineHand.transform.position, magazineHand.transform.rotation);
+        Rigidbody body = droppedMagazine.AddComponent<Rigidbody>();
+        body.AddForce(new Vector3(-0.5f, 1, 0) * 0.5f, ForceMode.Impulse);
         droppedMagazine.AddComponent<BoxCollider>();
         magazineHand.SetActive(false);
-    }  
+    }
+
     void RefillMagazine()
     {
         magazineHand.SetActive(true);
     }
+
     void AttachMagazine()
     {
         RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
@@ -82,5 +87,6 @@ public class ReloadWeapon : MonoBehaviour
         weapon.ammoCount = weapon.clipSize;
         rigController.ResetTrigger("reload_weapon");
         ammoWidget.Refresh(weapon.ammoCount);
+        isReloading = false;
     }
 }

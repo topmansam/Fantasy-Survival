@@ -1090,17 +1090,17 @@ PrefabInstance:
     - target: {fileID: 4658950608247899128, guid: 1e34f377680e64420b6458bed9585819,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10113114
+      value: 0.101131134
       objectReference: {fileID: 0}
     - target: {fileID: 4658950608247899128, guid: 1e34f377680e64420b6458bed9585819,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018179453
+      value: -0.000000016599667
       objectReference: {fileID: 0}
     - target: {fileID: 4658950608247899128, guid: 1e34f377680e64420b6458bed9585819,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000018479831
+      value: 0.0000000016873941
       objectReference: {fileID: 0}
     - target: {fileID: 4658950608640666415, guid: 1e34f377680e64420b6458bed9585819,
         type: 3}
@@ -1506,6 +1506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a30b09c237343d48b6b6440fbe7a72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigController: {fileID: 1204853946}
   jumpHeight: 2
   gravity: 20
   stepDown: 0.3
@@ -9670,6 +9671,7 @@ MonoBehaviour:
   - {fileID: 554753419}
   playerCamera: {fileID: 2129318912}
   ammoWidget: {fileID: 1323463496}
+  isChangingWeapon: 0
 --- !u!114 &7747638159031856338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9683,10 +9685,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigController: {fileID: 1204853946}
-  animatonEvents: {fileID: 1204853947}
+  animationEvents: {fileID: 1204853947}
   activeWeapon: {fileID: 7747638159031856337}
   leftHand: {fileID: 5985070558915988416}
   ammoWidget: {fileID: 1323463496}
+  isReloading: 0
 --- !u!143 &7747638159031856339
 CharacterController:
   m_ObjectHideFlags: 0

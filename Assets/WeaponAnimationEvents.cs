@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AnimationEvent : UnityEvent<string>{
-}
-public class WeaponAnimatonEvents : MonoBehaviour
+public class AnimationEvent : UnityEvent<string>
 {
-    public AnimationEvent WeaponAnimationEvent = new AnimationEvent(); 
+
+}
+
+public class WeaponAnimationEvents : MonoBehaviour
+{
+    public AnimationEvent WeaponAnimationEvent = new AnimationEvent();
+
     public void OnAnimationEvent(string eventName)
     {
         WeaponAnimationEvent.Invoke(eventName);
