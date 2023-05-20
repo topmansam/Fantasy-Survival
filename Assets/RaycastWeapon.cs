@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class RaycastWeapon : MonoBehaviour
         public Vector3 initialPosition;
         public Vector3 initialVelocity;
         public TrailRenderer tracer;
-        //public int bounce;
+        public int bounce;
     }
 
     public ActiveWeapon.WeaponSlot weaponSlot;
@@ -18,25 +18,27 @@ public class RaycastWeapon : MonoBehaviour
     public int fireRate = 25;
     public float bulletSpeed = 1000.0f;
     public float bulletDrop = 0.0f;
-    //public int maxBounces = 0;
+    public int maxBounces = 0;
     public bool debug = false;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
     public string weaponName;
 
+    public int ammoCount;
+    public int clipSize;
+
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil recoil;
-    public GameObject magazine; 
+    public GameObject magazine;
 
     Ray ray;
     RaycastHit hitInfo;
     float accumulatedTime;
     List<Bullet> bullets = new List<Bullet>();
     float maxLifetime = 3.0f;
-    public int ammoCount;
-    public int clipSize;
+
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
@@ -57,11 +59,8 @@ public class RaycastWeapon : MonoBehaviour
         bullet.time = 0.0f;
         bullet.tracer = Instantiate(tracerEffect, position, Quaternion.identity);
         bullet.tracer.AddPosition(position);
-        //bullet.bounce = maxBounces;
-        Color color = Random.ColorHSV(0.46f, 0.61f);
-        float intensity = 20.0f;
-        Color rgb = new Color(color.r * intensity, color.g * intensity, color.b * intensity, color.a * intensity);
-        bullet.tracer.material.SetColor("_EmissionColor", rgb);
+        bullet.bounce = maxBounces;
+
         return bullet;
     }
 
@@ -140,7 +139,14 @@ public class RaycastWeapon : MonoBehaviour
             end = hitInfo.point;
             debugColor = Color.red;
 
-            
+            // Bullet ricochet
+            if (bullet.bounce > 0)
+            {
+                bullet.time = 0;
+                bullet.initialPosition = hitInfo.point;
+                bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
+                bullet.bounce--;
+            }
 
             // Collision impulse
             var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
@@ -160,8 +166,12 @@ public class RaycastWeapon : MonoBehaviour
 
     private void FireBullet()
     {
-        if (ammoCount <= 0) return;
+        if (ammoCount <= 0)
+        {
+            return;
+        }
         ammoCount--;
+
         foreach (var particle in muzzleFlash)
         {
             particle.Emit(1);
@@ -171,7 +181,7 @@ public class RaycastWeapon : MonoBehaviour
         var bullet = CreateBullet(raycastOrigin.position, velocity);
         bullets.Add(bullet);
 
-        recoil.GenerateRecoil(weaponName); 
+        recoil.GenerateRecoil(weaponName);
     }
 
     public void StopFiring()

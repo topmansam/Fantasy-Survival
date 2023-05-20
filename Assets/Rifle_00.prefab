@@ -913,9 +913,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSlot: 0
   isFiring: 0
-  fireRate: 25
+  fireRate: 10
   bulletSpeed: 1000
   bulletDrop: 0
+  maxBounces: 0
   debug: 0
   muzzleFlash:
   - {fileID: 7088661046853448902}
@@ -924,12 +925,12 @@ MonoBehaviour:
   tracerEffect: {fileID: 1581735429520741703, guid: 7a4e13ba73be34a4f9d686bf07a765d1,
     type: 3}
   weaponName: rifle
+  ammoCount: 30
+  clipSize: 30
   raycastOrigin: {fileID: 6962493267185255441}
   raycastDestination: {fileID: 0}
   recoil: {fileID: 0}
   magazine: {fileID: 3210782867318436721}
-  ammoCount: 30
-  clipSize: 30
 --- !u!114 &1475282726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,10 +955,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926b151bbd3904e9eb5886637c6e1c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
+  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
-  duration: 0.1
   recoilPattern:
   - {x: 10, y: 10}
   - {x: 7, y: 10}
@@ -972,6 +972,8 @@ MonoBehaviour:
   - {x: -1, y: 10}
   - {x: 2, y: 10}
   - {x: 5, y: 10}
+  duration: 0.1
+  recoilModifier: 1
 --- !u!114 &4009783348864785606
 MonoBehaviour:
   m_ObjectHideFlags: 0
