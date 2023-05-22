@@ -9,7 +9,7 @@ public class RaycastWeapon : MonoBehaviour
         public float time;
         public Vector3 initialPosition;
         public Vector3 initialVelocity;
-        public TrailRenderer tracer;
+        // public TrailRenderer tracer; // Commented out the TrailRenderer
         public int bounce;
     }
 
@@ -22,7 +22,7 @@ public class RaycastWeapon : MonoBehaviour
     public bool debug = false;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
-    public TrailRenderer tracerEffect;
+    // public TrailRenderer tracerEffect; // Commented out the TrailRenderer
     public string weaponName;
 
     public int ammoCount;
@@ -57,8 +57,8 @@ public class RaycastWeapon : MonoBehaviour
         bullet.initialPosition = position;
         bullet.initialVelocity = velocity;
         bullet.time = 0.0f;
-        bullet.tracer = Instantiate(tracerEffect, position, Quaternion.identity);
-        bullet.tracer.AddPosition(position);
+        // bullet.tracer = Instantiate(tracerEffect, position, Quaternion.identity); // Commented out the TrailRenderer instantiation
+        // bullet.tracer.AddPosition(position); // Commented out the TrailRenderer addition of the position
         bullet.bounce = maxBounces;
 
         return bullet;
@@ -128,8 +128,8 @@ public class RaycastWeapon : MonoBehaviour
         ray.direction = direction;
 
         Color debugColor = Color.green;
-
-        if (Physics.Raycast(ray, out hitInfo, distance))
+        int layerMask = ~LayerMask.GetMask("Player"); // Ignore the "Player" layer
+        if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
         {
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
@@ -154,13 +154,13 @@ public class RaycastWeapon : MonoBehaviour
             {
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
             }
-        }
 
-        bullet.tracer.transform.position = end;
+            // bullet.tracer.transform.position = end; // Commented out the TrailRenderer position update
 
-        if (debug)
-        {
-            Debug.DrawLine(start, end, debugColor, 1.0f);
+            if (debug)
+            {
+                Debug.DrawLine(start, end, debugColor, 1.0f);
+            }
         }
     }
 
