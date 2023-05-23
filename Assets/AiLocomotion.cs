@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AiLocomotion : MonoBehaviour
 {
+    public Health health;
     public Transform playerTransform;
     NavMeshAgent agent;   
      Animator animator;
@@ -20,17 +21,20 @@ public class AiLocomotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer < 0.0f)
+        if (health.alive)
         {
-            float sqrDistance = (playerTransform.position - agent.destination).sqrMagnitude;
-            if (sqrDistance > maxDistance*maxDistance)
+            timer -= Time.deltaTime;
+            if (timer < 0.0f)
             {
-                agent.destination = playerTransform.position;
+                float sqrDistance = (playerTransform.position - agent.destination).sqrMagnitude;
+                if (sqrDistance > maxDistance * maxDistance)
+                {
+                    agent.destination = playerTransform.position;
+                }
+                timer = maxTime;
             }
-            timer = maxTime;
+
+            animator.SetFloat("speed", agent.velocity.magnitude);
         }
-       
-        animator.SetFloat("speed", agent.velocity.magnitude);
     }
 }

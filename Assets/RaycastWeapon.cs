@@ -27,7 +27,7 @@ public class RaycastWeapon : MonoBehaviour
 
     public int ammoCount;
     public int clipSize;
-
+    public float damage = 10f;
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil recoil;
@@ -146,13 +146,18 @@ public class RaycastWeapon : MonoBehaviour
                 bullet.initialPosition = hitInfo.point;
                 bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
                 bullet.bounce--;
-            }
+            } 
 
             // Collision impulse
             var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
             if (rb2d)
             {
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            }
+            var hitbox = hitInfo.collider.GetComponent<Hitbox>();
+            if (hitbox)
+            {
+                hitbox.onRaycastHit(this, ray.direction);
             }
 
             // bullet.tracer.transform.position = end; // Commented out the TrailRenderer position update
