@@ -590,6 +590,12 @@ MonoBehaviour:
     m_PositionWeight: 1
     m_RotationWeight: 1
     m_Space: 2
+--- !u!1 &184600796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3668913485824633028, guid: 9fbe346cd848d4d92bc3788b50547352,
+    type: 3}
+  m_PrefabInstance: {fileID: 944732306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191330469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2461,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 944732306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1174977358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184600796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51763bafdae3792488a76927e0169d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  mouseSensitivity: 100
+  playerBody: {fileID: 4773380028869072998}
 --- !u!1 &1204853944
 GameObject:
   m_ObjectHideFlags: 0

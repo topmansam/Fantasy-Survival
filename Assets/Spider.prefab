@@ -3217,7 +3217,6 @@ GameObject:
   - component: {fileID: 7530168847066891750}
   - component: {fileID: 7530168847076323456}
   - component: {fileID: 7530168847076323459}
-  - component: {fileID: 7530168847076323486}
   - component: {fileID: 7530168847076323487}
   - component: {fileID: -4276037384072907671}
   - component: {fileID: -186075126397364920}
@@ -3297,7 +3296,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &7530168847076323459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,18 +3313,6 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   maxTime: 0.2
   maxDistance: 1
---- !u!114 &7530168847076323486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530168847076423594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58e90accfc774fa4b45c4505fb1d36a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7530168847076323487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,6 +3325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e56479ebe304930932253818f14bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   gameManager: {fileID: 0}
   alive: 1
   maxHealth: 50
@@ -3392,7 +3380,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!1 &7530168847076423596
 GameObject:

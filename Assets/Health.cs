@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
-    
+    public Animator animator;
     public GameManager gameManager;
     UIHealthBar healthBar;
    public bool alive = true;
@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         gameManager = FindObjectOfType<GameManager>();
         ragdoll = GetComponent<Ragdoll>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -54,12 +55,16 @@ public class Health : MonoBehaviour
     }
     private void Die() {
         alive = false;
-        ragdoll.ActivateRagdoll();
+        //ragdoll.ActivateRagdoll();
+        animator.SetTrigger("death");
+        Destroy(GetComponent<NavMeshAgent>());
+        Destroy(GetComponent<EnemyManager>());
+        Destroy(GetComponent<CapsuleCollider>());
         healthBar.gameObject.SetActive(false);
         gameManager.enemiesAlive--;
-        Destroy(GetComponent<NavMeshAgent>());
-              Destroy(GetComponent<EnemyManager>());
-               Destroy(GetComponent<CapsuleCollider>());
+        Destroy(gameObject, 2f);
+         
+         
 
     }
 }
