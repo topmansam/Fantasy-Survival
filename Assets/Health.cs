@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour
 {
+    
+    public GameManager gameManager;
     UIHealthBar healthBar;
    public bool alive = true;
     public float maxHealth;
@@ -17,6 +20,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         ragdoll = GetComponent<Ragdoll>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         currentHealth = maxHealth;
@@ -52,6 +56,10 @@ public class Health : MonoBehaviour
         alive = false;
         ragdoll.ActivateRagdoll();
         healthBar.gameObject.SetActive(false);
+        gameManager.enemiesAlive--;
+        Destroy(GetComponent<NavMeshAgent>());
+              Destroy(GetComponent<EnemyManager>());
+               Destroy(GetComponent<CapsuleCollider>());
 
     }
 }
