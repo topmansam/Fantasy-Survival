@@ -9,7 +9,8 @@ public class ActiveWeapon : MonoBehaviour
         Primary = 0,
         Secondary = 1
     }
-
+    private bool isReturningFromKnifing = false;
+    bool isKnifing = false;
     public Transform crossHairTarget;
     public Animator rigController;
     public Transform[] weaponSlots;
@@ -58,6 +59,9 @@ public class ActiveWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
+
+
         var weapon = GetWeapon(activeWeaponIndex);
         bool notSprinting = rigController.GetCurrentAnimatorStateInfo(2).shortNameHash == Animator.StringToHash("notSprinting");
         if (weapon && !isHolstered && notSprinting)

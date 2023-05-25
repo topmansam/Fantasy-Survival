@@ -911,6 +911,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf48dc659d59849699371927fe61dbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   weaponSlot: 0
   isFiring: 0
   fireRate: 10
@@ -922,11 +925,10 @@ MonoBehaviour:
   - {fileID: 7088661046853448902}
   - {fileID: 7088378277717324896}
   hitEffect: {fileID: 7087844870267287118}
-  tracerEffect: {fileID: 1581735429520741703, guid: 7a4e13ba73be34a4f9d686bf07a765d1,
-    type: 3}
   weaponName: rifle
   ammoCount: 30
   clipSize: 30
+  damage: 10
   raycastOrigin: {fileID: 6962493267185255441}
   raycastDestination: {fileID: 0}
   recoil: {fileID: 0}

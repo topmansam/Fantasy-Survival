@@ -13,6 +13,7 @@ public class RaycastWeapon : MonoBehaviour
         public int bounce;
     }
 
+    public LayerMask playerLayerMask;
     public ActiveWeapon.WeaponSlot weaponSlot;
     public bool isFiring = false;
     public int fireRate = 25;
@@ -128,9 +129,22 @@ public class RaycastWeapon : MonoBehaviour
         ray.direction = direction;
 
         Color debugColor = Color.green;
-        int layerMask = ~LayerMask.GetMask("Player"); // Ignore the "Player" layer
+        int layerMask = ~playerLayerMask;
         if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
         {
+            Debug.Log("Object Hit: " + hitInfo.collider.gameObject.name);
+
+            // Check the layer of the hit object
+            int hitObjectLayer = hitInfo.collider.gameObject.layer;
+            Debug.Log("Hit Object Layer: " + LayerMask.LayerToName(hitObjectLayer));
+
+            // Check the player layer mask value
+            int playerLayerMaskValue = playerLayerMask.value;
+            Debug.Log("Player Layer Mask Value: " + playerLayerMaskValue);
+
+            // Verify if the player layer mask is correctly set
+            bool ignorePlayerLayer = (playerLayerMaskValue & (1 << hitObjectLayer)) != 0;
+            Debug.Log("Ignore Player Layer: " + ignorePlayerLayer);
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
@@ -139,21 +153,14 @@ public class RaycastWeapon : MonoBehaviour
             end = hitInfo.point;
             debugColor = Color.red;
 
-            // Bullet ricochet
-            if (bullet.bounce > 0)
-            {
-                bullet.time = 0;
-                bullet.initialPosition = hitInfo.point;
-                bullet.initialVelocity = Vector3.Reflect(bullet.initialVelocity, hitInfo.normal);
-                bullet.bounce--;
-            } 
+            
 
-            // Collision impulse
-            var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
-            if (rb2d)
-            {
-                rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
-            }
+            //// Collision impulse
+            //var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
+            //if (rb2d)
+            //{
+            //    rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
+            //}
             var hitbox = hitInfo.collider.GetComponent<Hitbox>();
             if (hitbox)
             {

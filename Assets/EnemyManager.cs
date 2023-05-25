@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //audioSource = GetComponent<AudioSource>();
+        enemyAnimator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
        
     }
@@ -73,6 +74,9 @@ public class EnemyManager : MonoBehaviour {
 
         if (attackDelayTimer >= delayBetweenAttacks-attackAnimStartDelay && attackDelayTimer <=delayBetweenAttacks && playerInReach) {
             enemyAnimator.SetTrigger("isAttacking");
+            Debug.Log("TRUE");
+             
+
         }
 
         if(attackDelayTimer >= delayBetweenAttacks && playerInReach) {
