@@ -6,7 +6,9 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
+     public PlayerHealthBar healthBar;
     public float health = 100;
+    public float currentHealth;
     public TextMeshProUGUI healthNum;
     public GameManager gameManager;
     public GameObject playerCamera;
@@ -18,12 +20,17 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //healthBar = GetComponentInChildren<UIHealthBar>();
+        currentHealth = health;
+        healthBar.SetMaxHealth(health);
         playerCameraOriginalRotation = playerCamera.transform.localRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
+      
         if (hurtPanel.alpha > 0)
         {
             hurtPanel.alpha -= Time.deltaTime;
@@ -37,11 +44,15 @@ public class PlayerManager : MonoBehaviour
         {
             playerCamera.transform.localRotation = playerCameraOriginalRotation;
         }
+        //if (Input.GetKeyDown(KeyCode.N)){
+        //    Hit(20);
+        //}
     }
 
     public void Hit(float damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         healthNum.text = health.ToString() + " Health ";
         if (health <= 0)
         {

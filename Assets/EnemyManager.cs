@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour {
 
     public GameObject player;
     public Animator enemyAnimator;
-    public float damage = 20f;
+    public float damage = 5f;
     public float health = 100;
     public GameManager gameManager;
     
@@ -74,13 +74,14 @@ public class EnemyManager : MonoBehaviour {
 
         if (attackDelayTimer >= delayBetweenAttacks-attackAnimStartDelay && attackDelayTimer <=delayBetweenAttacks && playerInReach) {
             enemyAnimator.SetTrigger("isAttacking");
-            Debug.Log("TRUE");
+            
              
 
         }
 
         if(attackDelayTimer >= delayBetweenAttacks && playerInReach) {
             player.GetComponent<PlayerManager>().Hit(damage);
+            Debug.Log("Getting hit");
             attackDelayTimer = 0;
         }
     }

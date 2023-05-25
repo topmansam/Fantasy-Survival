@@ -33,19 +33,20 @@ public class AiLocomotion : MonoBehaviour
     {
         if (health.alive && playerTransform != null)
         {
-            timer -= Time.deltaTime;
+            agent.destination = playerTransform.position;
+            //timer -= Time.deltaTime;
 
-            if (timer < 0.0f)
-            {
-                float sqrDistance = (playerTransform.position - agent.destination).sqrMagnitude;
+            //if (timer < 0.0f)
+            //{
+            //    float sqrDistance = (playerTransform.position - agent.destination).sqrMagnitude;
 
-                if (sqrDistance > maxDistance * maxDistance)
-                {
-                    agent.destination = playerTransform.position;
-                }
+            //    if (sqrDistance > maxDistance * maxDistance)
+            //    {
+            //        
+            //    }
 
-                timer = maxTime;
-            }
+            //    timer = maxTime;
+            //}
 
             animator.SetFloat("speed", agent.velocity.magnitude);
         }

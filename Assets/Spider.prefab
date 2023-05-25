@@ -3265,7 +3265,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: bc600cce01eb57a409f4e69025868a2c, type: 3}
   m_Controller: {fileID: 9100000, guid: b794361526e14406aa3dec832068d1c7, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -3346,12 +3346,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemyAnimator: {fileID: 0}
-  damage: 20
+  damage: 5
   health: 100
   gameManager: {fileID: 0}
   playerInReach: 0
   attackAnimStartDelay: 0.5
-  delayBetweenAttacks: 1
+  delayBetweenAttacks: 4
 --- !u!136 &-186075126397364920
 CapsuleCollider:
   m_ObjectHideFlags: 0

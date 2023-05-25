@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     public Animator animator;
     public GameManager gameManager;
-    UIHealthBar healthBar;
+     UIHealthBar healthBar;
    public bool alive = true;
     public float maxHealth;
     [HideInInspector]
@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -70,7 +70,7 @@ public class ReloadWeapon : MonoBehaviour
         GameObject droppedMagazine = Instantiate(magazineHand, magazineHand.transform.position, magazineHand.transform.rotation);
         Rigidbody body = droppedMagazine.AddComponent<Rigidbody>();
         body.AddForce(new Vector3(-0.5f, 1, 0) * 0.5f, ForceMode.Impulse);
-        droppedMagazine.AddComponent<BoxCollider>();
+        //droppedMagazine.AddComponent<BoxCollider>();
         magazineHand.SetActive(false);
     }
 
