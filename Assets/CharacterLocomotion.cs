@@ -94,13 +94,14 @@ public class CharacterLocomotion : MonoBehaviour
     {
         if (staminaController.playerStamina > 0.01&& !staminaController.waitTillFullRegen)
         {
-          
+            groundSpeed = 1.2f;
             isSprinting = IsSprinting();
             animator.SetBool(isSprintingParam, isSprinting);
             rigController.SetBool(isSprintingParam, isSprinting);
         }
         else
         {
+            groundSpeed = 0.5f;
             isSprinting = false;
             animator.SetBool(isSprintingParam, false);
             rigController.SetBool(isSprintingParam, false);
