@@ -13,7 +13,7 @@ public class CharacterLocomotion : MonoBehaviour
     public float jumpDamp;
     public float groundSpeed;
     public float pushPower;
-
+    public bool isSprinting;
     Animator animator;
     CharacterController cc;
     ActiveWeapon activeWeapon;
@@ -27,9 +27,12 @@ public class CharacterLocomotion : MonoBehaviour
 
     int isSprintingParam = Animator.StringToHash("isSprinting");
 
+    [HideInInspector] public StaminaController staminaController;
+
     // Start is called before the first frame update
     void Start()
     {
+        staminaController = GetComponent<StaminaController>();
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         activeWeapon = GetComponent<ActiveWeapon>();
@@ -37,6 +40,13 @@ public class CharacterLocomotion : MonoBehaviour
         characterAiming = GetComponent<CharacterAiming>();
     }
 
+    public void SetRunSpeed(bool speed)
+    {
+        //groundSpeed = speed;
+        if (IsSprinting()) speed = true;
+        else speed = false;
+       
+    }
     // Update is called once per frame
     void Update()
     {
@@ -52,6 +62,22 @@ public class CharacterLocomotion : MonoBehaviour
         {
             Jump();
         }
+        if (!IsSprinting())
+        {
+            staminaController.weAreSprinting = false;
+        }
+        if (IsSprinting())
+        {
+            if (staminaController.playerStamina > 0.1)
+            {
+                staminaController.weAreSprinting = true;
+                staminaController.Sprinting();
+            }
+            else
+            {
+                staminaController.weAreSprinting = false;
+            }
+        }
     }
 
     bool IsSprinting()
@@ -66,10 +92,21 @@ public class CharacterLocomotion : MonoBehaviour
 
     private void UpdateIsSprinting()
     {
-        bool isSprinting = IsSprinting();
-        animator.SetBool(isSprintingParam, isSprinting);
-        rigController.SetBool(isSprintingParam, isSprinting);
+        if (staminaController.playerStamina > 0.01&& !staminaController.waitTillFullRegen)
+        {
+          
+            isSprinting = IsSprinting();
+            animator.SetBool(isSprintingParam, isSprinting);
+            rigController.SetBool(isSprintingParam, isSprinting);
+        }
+        else
+        {
+            isSprinting = false;
+            animator.SetBool(isSprintingParam, false);
+            rigController.SetBool(isSprintingParam, false);
+        }
     }
+
 
     private void OnAnimatorMove()
     {
