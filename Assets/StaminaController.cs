@@ -13,8 +13,8 @@ public class StaminaController : MonoBehaviour
     [Range(0, 50)][SerializeField] private float staminaDrain = 0.5f;
     [Range(0, 50)][SerializeField] private float staminaRegen = 0.5f;
 
-    [SerializeField] private int slowedRunSpeed = 4;
-    [SerializeField] private int normalRunSPeed = 8;
+    [SerializeField] private float slowedRunSpeed = 1.2f;
+    [SerializeField] private float normalRunSPeed = 2f;
 
     [SerializeField] private Image staminaProgressUI = null;
     [SerializeField] private CanvasGroup sliderCanvasGroup = null;
@@ -36,46 +36,19 @@ public class StaminaController : MonoBehaviour
     {
         if (!weAreSprinting)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                isShiftKeyDown = true;
-            }
-            else if (isShiftKeyDown)
-            {
-                isShiftKeyDown = false;
-                isDelayingRegen = true;
-                regenDelayTimer = Time.time + delayDuration;
-            }
-
-            if (playerStamina <= 0f)
-            {
-                waitTillFullRegen = true;
-                if (isDelayingRegen && Time.time >= regenDelayTimer)
-                {
-                    playerStamina += staminaRegen * Time.deltaTime;
-                    UpdateStamina(1);
-                    if (playerStamina >= maxStamina)
-                    {
-                        sliderCanvasGroup.alpha = 0;
-                        hasRengerated = true;
-                    }
-                }
-            }
-            else if (playerStamina <= maxStamina - 0.01)
+            
+             if (playerStamina <= maxStamina - 0.01)
             {
                 playerStamina += staminaRegen * Time.deltaTime;
                 UpdateStamina(1);
                 if (playerStamina >= maxStamina)
                 {
+                    locomotion.SetRunSpeed(1.2f);
                     sliderCanvasGroup.alpha = 0;
                     hasRengerated = true;
                 }
             }
-            else
-            {
-                isDelayingRegen = false; // Reset delay state if stamina is not zero
-                waitTillFullRegen = false;
-            }
+            
         }
     }
     public void Sprinting()
@@ -91,10 +64,10 @@ public class StaminaController : MonoBehaviour
             {
                 Debug.Log("Empty");
                 hasRengerated = false;
-                // bool Speed = locomotion.isSprinting;
-                //locomotion.SetRunSpeed(Speed);
+              
+                locomotion.SetRunSpeed(slowedRunSpeed);
 
-                sliderCanvasGroup.alpha = 1;
+                sliderCanvasGroup.alpha = 0;
             }
         }
     }

@@ -40,11 +40,9 @@ public class CharacterLocomotion : MonoBehaviour
         characterAiming = GetComponent<CharacterAiming>();
     }
 
-    public void SetRunSpeed(bool speed)
+    public void SetRunSpeed(float speed)
     {
-        //groundSpeed = speed;
-        if (IsSprinting()) speed = true;
-        else speed = false;
+        groundSpeed = speed;
        
     }
     // Update is called once per frame
@@ -62,50 +60,72 @@ public class CharacterLocomotion : MonoBehaviour
         {
             Jump();
         }
-        if (!IsSprinting())
-        {
-            staminaController.weAreSprinting = false;
-        }
-        if (IsSprinting())
-        {
-            if (staminaController.playerStamina > 0.1)
-            {
-                staminaController.weAreSprinting = true;
-                staminaController.Sprinting();
-            }
-            else
-            {
-                staminaController.weAreSprinting = false;
-            }
-        }
+       
     }
 
     bool IsSprinting()
     {
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        bool sprint = Input.GetKey(KeyCode.LeftShift);
         bool isFiring = activeWeapon.IsFiring();
         bool isReloading = reloadWeapon.isReloading;
         bool isChangingWeapon = activeWeapon.isChangingWeapon;
         bool isAiming = characterAiming.isAiming;
-        return isSprinting && !isFiring && !isReloading && !isChangingWeapon && !isAiming;
+        return sprint && !isFiring && !isReloading && !isChangingWeapon && !isAiming && !Input.GetKey(KeyCode.S);
     }
 
     private void UpdateIsSprinting()
     {
-        if (staminaController.playerStamina > 0.01&& !staminaController.waitTillFullRegen)
+        isSprinting = IsSprinting();
+        if (!isSprinting)
         {
             groundSpeed = 1.2f;
-            isSprinting = IsSprinting();
-            animator.SetBool(isSprintingParam, isSprinting);
-            rigController.SetBool(isSprintingParam, isSprinting);
-        }
-        else
-        {
-            groundSpeed = 0.5f;
-            isSprinting = false;
-            animator.SetBool(isSprintingParam, false);
+            staminaController.weAreSprinting = false;
+            animator.SetBool("isSprinting", false);
             rigController.SetBool(isSprintingParam, false);
         }
+        if (isSprinting)
+        {
+            if (staminaController.playerStamina > 0&&staminaController.hasRengerated)
+            {
+                groundSpeed = 2f;
+                staminaController.weAreSprinting = true;
+                staminaController.Sprinting();
+                animator.SetBool("isSprinting", true);
+                rigController.SetBool(isSprintingParam, true);
+            }
+            else
+            {
+                animator.SetBool("isSprinting", false);
+                rigController.SetBool(isSprintingParam, false);
+                groundSpeed = 1.2f;
+                isSprinting = false;
+            }
+        }
+        //if (staminaController.playerStamina > 0.01)
+        //{
+           
+        //    isSprinting = IsSprinting();
+
+        //    if (isSprinting)
+        //    {
+        //        animator.SetBool("isSprinting", true);
+        //        rigController.SetBool(isSprintingParam, true);
+        //        groundSpeed = 2;
+        //    }
+        //    else
+        //    {
+        //        animator.SetBool("isSprinting", false);
+        //        rigController.SetBool(isSprintingParam, false);
+        //        groundSpeed = 1.2f;
+        //    }
+        //}
+        //else
+        //{
+           
+        //    isSprinting = false;
+        //    animator.SetBool(isSprintingParam, false);
+        //    rigController.SetBool(isSprintingParam, false);
+        //}
     }
 
 
