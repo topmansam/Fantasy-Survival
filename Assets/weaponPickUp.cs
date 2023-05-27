@@ -8,7 +8,7 @@ public class weaponPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         //check if it has activeWeapon script
         ActiveWeapon activeWeapon = other.gameObject.GetComponent<ActiveWeapon>();
 

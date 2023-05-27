@@ -17,8 +17,8 @@ public class CharacterAiming : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
         animator = GetComponent<Animator>();
         activeWeapon = GetComponent<ActiveWeapon>();
     }

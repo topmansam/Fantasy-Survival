@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Health : MonoBehaviour
 {
     public Animator animator;
-    public GameManager gameManager;
+     GameManager gameManager;
      UIHealthBar healthBar;
    public bool alive = true;
     public float maxHealth;
@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
+     
     
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,11 @@ public class Health : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         gameManager.enemiesAlive--;
         Destroy(gameObject, 2f);
-         
+
+        //increase coins
+
+        Coin.instance.IncreaseCoins(1);
+
          
 
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IShopCustomer
 {
     public PlayerHealthBar healthBar;
     public float maxHealth = 100;
@@ -20,13 +20,18 @@ public class PlayerManager : MonoBehaviour
     private Quaternion playerCameraOriginalRotation;
     private bool isRegeneratingHealth = false;
     private float timeSinceLastHit;
+    
+    private PurchaseGun pickUp;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         playerCameraOriginalRotation = playerCamera.transform.localRotation;
+        pickUp = GetComponent<PurchaseGun>();
     }
 
     // Update is called once per frame
@@ -99,5 +104,26 @@ public class PlayerManager : MonoBehaviour
     public void CameraShake()
     {
         playerCamera.transform.localRotation = Quaternion.Euler(Random.Range(-2, 2), 0, 0);
+    }
+
+    public void BoughtItem(Item.ItemType itemType)
+    {
+        Debug.Log("Bought item : " + itemType);
+        pickUp.giveWeapon();
+       
+    }
+
+    public bool TrySpendGoldAmount(int goldAmount)
+    {
+        if (Coin.instance.currentCoins >= goldAmount)
+        {
+
+            Coin.instance.DecreaseCoins(goldAmount);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -28,6 +28,7 @@ public class ActiveWeapon : MonoBehaviour
         RaycastWeapon existingWeapon = GetComponentInChildren<RaycastWeapon>();
         if (existingWeapon)
         {
+            Debug.Log("got the weapon");
             Equip(existingWeapon);
         }
     }

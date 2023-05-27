@@ -3326,7 +3326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  gameManager: {fileID: 0}
   alive: 1
   maxHealth: 50
   currentHealth: 0

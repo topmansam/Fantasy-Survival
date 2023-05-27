@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public int enemiesAlive = 0;
-
+    public float countdownTime = 5f; // Adjust the countdown time as desired
+    private bool isCountdownActive = false;
     public int round = 0;
 
     public GameObject[] spawnPoints;
@@ -26,20 +27,33 @@ public class GameManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        //healthNum.text = "Health " + player.health.ToString();
-        if (enemiesAlive == 0) {
-            round++;
-            NextWave(round);
-            roundNum.text = "Round: " + round.ToString();
+    void Update()
+    {
+        if (enemiesAlive == 0)
+        {
+            if (!isCountdownActive)
+            {
+                isCountdownActive = true;
+                StartCoroutine(StartCountdown());
+            }
         }
-
-        //if (Input.GetKeyDown(KeyCode.Escape)) {
-        //    Pause();
-
-        //}
     }
 
+    IEnumerator StartCountdown()
+    {
+        while (countdownTime > 0)
+        {
+            roundNum.text = "Next Round in: " + countdownTime.ToString("0");
+            yield return new WaitForSeconds(1f);
+            countdownTime--;
+        }
+
+        round++;
+        NextWave(round);
+        roundNum.text = "Round: " + round.ToString();
+        isCountdownActive = false;
+        countdownTime = 5f; // Reset the countdown time for the next round
+    }
     public void NextWave(int round) {
         for (int i = 0; i < round; i++) {
             GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
