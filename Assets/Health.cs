@@ -48,9 +48,10 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
         healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
+        // Add the following line to increase coins every time the enemy is hit
+        Coin.instance.IncreaseCoins(1);
         if (currentHealth <= 0.0f)
         {
-             
             Die();
         }
         blinkTimer = blinkDuration;

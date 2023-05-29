@@ -102,7 +102,7 @@ public class ActiveWeapon : MonoBehaviour
 
         SetActiveWeapon(newWeapon.weaponSlot);
 
-        ammoWidget.Refresh(weapon.ammoCount);
+        //ammoWidget.Refresh(weapon.ammoCount);
     }
 
     void ToggleActiveWeapon()

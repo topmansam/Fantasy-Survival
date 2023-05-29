@@ -25,9 +25,10 @@ public class RaycastWeapon : MonoBehaviour
     public ParticleSystem hitEffect;
     // public TrailRenderer tracerEffect; // Commented out the TrailRenderer
     public string weaponName;
-
+    private AmmoWidget ammoWidget;
     public int ammoCount;
     public int clipSize;
+    public int totalAmmo = 24;
     public float damage = 10f;
     public Transform raycastOrigin;
     public Transform raycastDestination;
@@ -42,7 +43,10 @@ public class RaycastWeapon : MonoBehaviour
 
     private void Awake()
     {
+        ammoCount=clipSize;
         recoil = GetComponent<WeaponRecoil>();
+        ammoWidget= FindObjectOfType<AmmoWidget>();
+        ammoWidget.Refresh(ammoCount,totalAmmo);
     }
 
     Vector3 GetPosition(Bullet bullet)
@@ -153,7 +157,7 @@ public class RaycastWeapon : MonoBehaviour
             end = hitInfo.point;
             debugColor = Color.red;
 
-            
+
 
             //// Collision impulse
             //var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
@@ -194,6 +198,7 @@ public class RaycastWeapon : MonoBehaviour
         bullets.Add(bullet);
 
         recoil.GenerateRecoil(weaponName);
+        ammoWidget.Refresh(ammoCount, totalAmmo);
     }
 
     public void StopFiring()

@@ -138,6 +138,7 @@ MonoBehaviour:
   weaponName: pistol
   ammoCount: 8
   clipSize: 8
+  maxAmmo: 16
   damage: 10
   raycastOrigin: {fileID: 8921828446428585500}
   raycastDestination: {fileID: 0}

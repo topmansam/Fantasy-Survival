@@ -6,8 +6,10 @@ public class AmmoWidget : MonoBehaviour
 {
    
     public TMPro.TMP_Text ammoText;
-    public void Refresh(int ammoCount)
+    public TMPro.TMP_Text totalAmmoText;
+    public void Refresh(int ammoCount, int totalAmmoAmount)
     {
         ammoText.text = ammoCount.ToString();
+        totalAmmoText.text = totalAmmoAmount.ToString();
     }
 }

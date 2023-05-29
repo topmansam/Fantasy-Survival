@@ -926,8 +926,9 @@ MonoBehaviour:
   - {fileID: 7088378277717324896}
   hitEffect: {fileID: 7087844870267287118}
   weaponName: rifle
-  ammoCount: 30
-  clipSize: 30
+  ammoCount: 0
+  clipSize: 15
+  totalAmmo: 30
   damage: 10
   raycastOrigin: {fileID: 6962493267185255441}
   raycastDestination: {fileID: 0}
