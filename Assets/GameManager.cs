@@ -9,11 +9,12 @@ public class GameManager : MonoBehaviour {
     public float countdownTime = 5f; // Adjust the countdown time as desired
     private bool isCountdownActive = false;
     public int round = 0;
-
+    public float baseHealth = 50f;
+    public float healthIncreasePerRound = 5f;
     public GameObject[] spawnPoints;
 
     public GameObject enemyPrefab;
-
+    public GameObject bossEnemyPrefab;
     //public GameObject pauseMenu;
 
     public TextMeshProUGUI roundNum;
@@ -54,13 +55,28 @@ public class GameManager : MonoBehaviour {
         isCountdownActive = false;
         countdownTime = 5f; // Reset the countdown time for the next round
     }
-    public void NextWave(int round) {
-        for (int i = 0; i < round; i++) {
-            GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+    public void NextWave(int round)
+    {
+        int enemyCount = Mathf.RoundToInt(Mathf.Pow(round, 1.5f)); // Exponential growth formula
 
-            GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-            enemySpawned.GetComponent<EnemyManager>().gameManager = GetComponent<GameManager>();
+        if (round == 2)
+        {
+            // Spawn the boss enemy
+            GameObject bossSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            GameObject bossSpawned = Instantiate(bossEnemyPrefab, bossSpawnPoint.transform.position, Quaternion.identity);
+            bossSpawned.GetComponent<EnemyManager>().gameManager = GetComponent<GameManager>();
             enemiesAlive++;
+        }
+        else
+        {
+            for (int i = 0; i < enemyCount; i++)
+            {
+                GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+                GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                enemySpawned.GetComponent<EnemyManager>().gameManager = GetComponent<GameManager>();
+                enemiesAlive++;
+            }
         }
     }
 
@@ -101,4 +117,9 @@ public class GameManager : MonoBehaviour {
     //    Cursor.lockState = CursorLockMode.Locked;
     //    AudioListener.volume = 1;
     //}
+    public float GetMaxHealth()
+    {
+        int currentRound = round;
+        return baseHealth + (healthIncreasePerRound * (currentRound-1));
+    }
 }
