@@ -3277,7 +3277,7 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 720
-  m_StoppingDistance: 1.6
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -3339,7 +3339,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerInReach: 0
   attackAnimStartDelay: 0.5
-  delayBetweenAttacks: 4
+  delayBetweenAttacks: 0.5
 --- !u!136 &-1688446914314176995
 CapsuleCollider:
   m_ObjectHideFlags: 0

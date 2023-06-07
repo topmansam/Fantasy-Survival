@@ -19,16 +19,17 @@ public class Health : MonoBehaviour
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
-
+    private EnemyManager enemyManager;
     // Start is called before the first frame update
     void Start()
     {
+        enemyManager = GetComponent<EnemyManager>();
         animator = GetComponent<Animator>();
         gameManager = FindObjectOfType<GameManager>();
         ragdoll = GetComponent<Ragdoll>();
 
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
-        initialMaxHealth = gameManager.GetMaxHealth();
+        initialMaxHealth = gameManager.GetMaxHealth(enemyManager.isBoss);
         currentHealth = initialMaxHealth;
         var rigidBodies = GetComponentsInChildren<Rigidbody>();
         healthBar = GetComponentInChildren<UIHealthBar>();

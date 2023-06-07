@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour {
     public float baseHealth = 50f;
     public float healthIncreasePerRound = 5f;
     public GameObject[] spawnPoints;
-
+    public float bossHealthMultiplier = 2f;
     public GameObject enemyPrefab;
     public GameObject bossEnemyPrefab;
     //public GameObject pauseMenu;
-
+ 
     public TextMeshProUGUI roundNum;
     public TextMeshProUGUI roundsSurvived;
     //public GameObject endScreen;
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
     }
     public void NextWave(int round)
     {
-        int enemyCount = Mathf.RoundToInt(Mathf.Pow(round, 1.5f)); // Exponential growth formula
+        int enemyCount = Mathf.RoundToInt(Mathf.Pow(round, 1.5f));
 
         if (round == 2)
         {
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour {
             GameObject bossSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject bossSpawned = Instantiate(bossEnemyPrefab, bossSpawnPoint.transform.position, Quaternion.identity);
             bossSpawned.GetComponent<EnemyManager>().gameManager = GetComponent<GameManager>();
+            bossSpawned.GetComponent<EnemyManager>().isBoss = true; // Set isBoss to true for the boss enemy
             enemiesAlive++;
         }
         else
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour {
 
                 GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                 enemySpawned.GetComponent<EnemyManager>().gameManager = GetComponent<GameManager>();
+                enemySpawned.GetComponent<EnemyManager>().isBoss = false; // Set isBoss to false for regular enemies
                 enemiesAlive++;
             }
         }
@@ -117,9 +119,17 @@ public class GameManager : MonoBehaviour {
     //    Cursor.lockState = CursorLockMode.Locked;
     //    AudioListener.volume = 1;
     //}
-    public float GetMaxHealth()
+    public float GetMaxHealth(bool isBoss)
     {
         int currentRound = round;
-        return baseHealth + (healthIncreasePerRound * (currentRound-1));
+        if (isBoss)
+        {
+            return baseHealth * bossHealthMultiplier + (healthIncreasePerRound * (currentRound - 1));
+        }
+        else
+        {
+            return baseHealth + (healthIncreasePerRound * (currentRound - 1));
+        }
     }
 }
+

@@ -26,6 +26,8 @@ public class RaycastWeapon : MonoBehaviour
     // public TrailRenderer tracerEffect; // Commented out the TrailRenderer
     public string weaponName;
     private AmmoWidget ammoWidget;
+    public static int totalAmmo_ref;
+    public static int clipSize_ref;
     public int ammoCount;
     public int clipSize;
     public int totalAmmo = 24;
@@ -43,6 +45,9 @@ public class RaycastWeapon : MonoBehaviour
 
     private void Awake()
     {
+        totalAmmo_ref = totalAmmo;
+        clipSize_ref = clipSize;
+
         ammoCount=clipSize;
         recoil = GetComponent<WeaponRecoil>();
         ammoWidget= FindObjectOfType<AmmoWidget>();
@@ -204,5 +209,11 @@ public class RaycastWeapon : MonoBehaviour
     public void StopFiring()
     {
         isFiring = false;
+    }
+    public void Restore()
+    {
+        totalAmmo = totalAmmo_ref;
+        clipSize = clipSize_ref;
+        ammoCount = clipSize;
     }
 }

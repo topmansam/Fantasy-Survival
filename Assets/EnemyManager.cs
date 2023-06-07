@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour {
     public float damage = 5f;
     public float health = 100;
     public GameManager gameManager;
-    
+    public bool isBoss = false;
 
     public bool playerInReach;
     private float attackDelayTimer;
@@ -74,7 +74,7 @@ public class EnemyManager : MonoBehaviour {
 
         if (attackDelayTimer >= delayBetweenAttacks-attackAnimStartDelay && attackDelayTimer <=delayBetweenAttacks && playerInReach) {
             enemyAnimator.SetTrigger("isAttacking");
-            
+            Debug.Log("can attack now");
              
 
         }
