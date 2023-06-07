@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour {
     {
         int enemyCount = Mathf.RoundToInt(Mathf.Pow(round, 1.5f));
 
-        if (round == 2)
+
+        if (round % 10 == 0)
         {
             // Spawn the boss enemy
             GameObject bossSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
