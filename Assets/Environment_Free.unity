@@ -620,6 +620,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &329989570 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1545510431, guid: 9fbe346cd848d4d92bc3788b50547352,
+    type: 3}
+  m_PrefabInstance: {fileID: 944732306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &333149449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1660,12 +1666,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 333149449}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1545510431 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1545510431, guid: 9fbe346cd848d4d92bc3788b50547352,
-    type: 3}
-  m_PrefabInstance: {fileID: 944732306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1546470280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2550,6 +2550,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 944732306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2126047917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6224746420083506728, guid: 30c347d8859e140b5aeff85100d37a1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8657485966231887400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2129354786
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,6 +4335,21 @@ PrefabInstance:
       propertyPath: ammoWidget
       value: 
       objectReference: {fileID: 1323463496}
+    - target: {fileID: 4460707921722180694, guid: 30c347d8859e140b5aeff85100d37a1f,
+        type: 3}
+      propertyPath: m_RigLayers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460707921722180694, guid: 30c347d8859e140b5aeff85100d37a1f,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[1].m_Rig
+      value: 
+      objectReference: {fileID: 8657485966231887401}
+    - target: {fileID: 4460707921722180694, guid: 30c347d8859e140b5aeff85100d37a1f,
+        type: 3}
+      propertyPath: m_RigLayers.Array.data[2].m_Rig
+      value: 
+      objectReference: {fileID: 2126047917}
     - target: {fileID: 4460707921722180695, guid: 30c347d8859e140b5aeff85100d37a1f,
         type: 3}
       propertyPath: ammoWidget
@@ -4332,7 +4359,7 @@ PrefabInstance:
         type: 3}
       propertyPath: crossHairTarget
       value: 
-      objectReference: {fileID: 1545510431}
+      objectReference: {fileID: 329989570}
     - target: {fileID: 4773380029399613507, guid: 30c347d8859e140b5aeff85100d37a1f,
         type: 3}
       propertyPath: m_RootOrder
@@ -4415,3 +4442,15 @@ PrefabInstance:
       objectReference: {fileID: 2112479371}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30c347d8859e140b5aeff85100d37a1f, type: 3}
+--- !u!114 &8657485966231887401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6224746421843178470, guid: 30c347d8859e140b5aeff85100d37a1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8657485966231887400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
