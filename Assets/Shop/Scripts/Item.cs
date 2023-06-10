@@ -23,7 +23,7 @@ public class Item {
     public static int GetCost(ItemType itemType) {
         switch (itemType) {
         default:
-        case ItemType.AssaultRiffle:        return 6;
+        case ItemType.AssaultRiffle:        return 0;
         
         }
     }

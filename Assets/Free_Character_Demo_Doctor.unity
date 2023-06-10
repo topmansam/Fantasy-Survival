@@ -107,7 +107,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.4
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -115,7 +115,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.13333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -123,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ae30a156188a545cd9bd75067a1f7034, type: 2}
 --- !u!1 &10012804
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &10012805
 Transform:
@@ -169,7 +169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &28290062
 Transform:
@@ -193,6 +193,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1875349658561138, guid: 6daa680dcc9e2664e93166b5bd915904, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4793486707560708, guid: 6daa680dcc9e2664e93166b5bd915904, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -342,7 +346,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &102306030
 Animator:
@@ -436,7 +440,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &102599811
 Animator:
@@ -717,7 +721,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967294
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &182916283
 Transform:
@@ -796,7 +800,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!154 &368833762
 TerrainCollider:
@@ -876,7 +880,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &394877862
 Animator:
@@ -959,6 +963,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1375343104453432, guid: a62feb69ce4b4324f9a5286a1de660d9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4537690545067548, guid: a62feb69ce4b4324f9a5286a1de660d9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1028,6 +1036,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1859682896273102, guid: 1209492fa55424740b0ed0c6ad23fa65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4264049697407356, guid: 1209492fa55424740b0ed0c6ad23fa65, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1243,7 +1255,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &640730900
 Animator:
@@ -1326,6 +1338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1322689164860976, guid: 209438f4311ee964a96061fa86ccaa22, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4428399078645284, guid: 209438f4311ee964a96061fa86ccaa22, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1406,7 +1422,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &759007692
 Animator:
@@ -1496,7 +1512,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &784928391
 Transform:
@@ -1536,6 +1552,10 @@ PrefabInstance:
     - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_Name
       value: PT_Medieval_Rock_6 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
@@ -1629,7 +1649,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &817298245
 Animator:
@@ -1760,6 +1780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PT_Medieval_Rock_6 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1840,7 +1864,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &1010768276
 Animator:
@@ -1927,6 +1951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PT_Medieval_Rock_6 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2004,7 +2032,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!108 &1073516752
 Light:
@@ -2113,7 +2141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &1330527790
 Animator:
@@ -2276,7 +2304,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &1401143669
 Animator:
@@ -2366,7 +2394,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1525234864
 Transform:
@@ -2394,6 +2422,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2474,7 +2506,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &1653316279
 Animator:
@@ -2560,6 +2592,10 @@ PrefabInstance:
     - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_Name
       value: PT_Medieval_Rock_6 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
@@ -2653,7 +2689,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &1686589350
 Animator:
@@ -2748,6 +2784,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1700937526220776, guid: eedb19df7f3f7cb43bdcf58b99f441c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4326216421845688, guid: eedb19df7f3f7cb43bdcf58b99f441c6, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2817,6 +2857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 784928391}
     m_Modifications:
+    - target: {fileID: 1630242364736636, guid: 50fd4e2e9474ffd458c9f8bc733f9519, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4578587453700026, guid: 50fd4e2e9474ffd458c9f8bc733f9519, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2893,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_Name
       value: PT_Medieval_Rock_6 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849409136748386, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4044871768499536, guid: 20e4e2bf37ed67247931393253442c33, type: 3}
       propertyPath: m_RootOrder
@@ -2986,7 +3034,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!95 &2092709919
 Animator:

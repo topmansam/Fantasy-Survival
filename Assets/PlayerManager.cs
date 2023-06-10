@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour, IShopCustomer
     public void BoughtItem(Item.ItemType itemType)
     {
         Debug.Log("Bought item : " + itemType);
-        pickUp.giveWeapon();
+        pickUp.GiveWeapon();
        
     }
 

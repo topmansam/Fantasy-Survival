@@ -48,7 +48,7 @@ public class ActiveWeapon : MonoBehaviour
         return GetWeapon(activeWeaponIndex);
     }
 
-    RaycastWeapon GetWeapon(int index)
+   public RaycastWeapon GetWeapon(int index)
     {
         if (index < 0 || index >= equipped_weapons.Length)
         {

@@ -5,16 +5,13 @@ using UnityEngine;
 public class PurchaseGun : MonoBehaviour
 {
     public RaycastWeapon weaponFab;
-    private ActiveWeapon activeWeapon;
+ 
     //check if it has activeWeapon script
 
-    private void Start()
+    
+    public void GiveWeapon()
     {
-        activeWeapon = GetComponent<ActiveWeapon>();
-        
-    }
-    public void giveWeapon()
-    {
+        ActiveWeapon activeWeapon = GetComponent<ActiveWeapon>();
         if (activeWeapon)
         {
             RaycastWeapon newWeapon = Instantiate(weaponFab);

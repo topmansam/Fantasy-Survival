@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastWeapon : MonoBehaviour
 {
-    class Bullet
+    public class Bullet
     {
         public float time;
         public Vector3 initialPosition;
@@ -25,7 +25,7 @@ public class RaycastWeapon : MonoBehaviour
     public ParticleSystem hitEffect;
     // public TrailRenderer tracerEffect; // Commented out the TrailRenderer
     public string weaponName;
-    private AmmoWidget ammoWidget;
+    public AmmoWidget ammoWidget;
     public static int totalAmmo_ref;
     public static int clipSize_ref;
     public int ammoCount;
@@ -39,8 +39,8 @@ public class RaycastWeapon : MonoBehaviour
 
     Ray ray;
     RaycastHit hitInfo;
-    float accumulatedTime;
-    List<Bullet> bullets = new List<Bullet>();
+    public float accumulatedTime;
+    public List<Bullet> bullets = new List<Bullet>();
     float maxLifetime = 3.0f;
 
     private void Awake()
@@ -61,7 +61,7 @@ public class RaycastWeapon : MonoBehaviour
         return (bullet.initialPosition) + (bullet.initialVelocity * bullet.time) + (0.5f * gravity * bullet.time * bullet.time);
     }
 
-    Bullet CreateBullet(Vector3 position, Vector3 velocity)
+    public Bullet CreateBullet(Vector3 position, Vector3 velocity)
     {
         Bullet bullet = new Bullet();
         bullet.initialPosition = position;
@@ -97,8 +97,7 @@ public class RaycastWeapon : MonoBehaviour
             StopFiring();
         }
     }
-
-    public void UpdateFiring(float deltaTime)
+    public virtual void UpdateFiring(float deltaTime)
     {
         accumulatedTime += deltaTime;
         float fireInterval = 1.0f / fireRate;
@@ -210,10 +209,11 @@ public class RaycastWeapon : MonoBehaviour
     {
         isFiring = false;
     }
-    public void Restore()
+    public void Restore(int totalAmmo_ref, int clipSize_ref)
     {
         totalAmmo = totalAmmo_ref;
         clipSize = clipSize_ref;
         ammoCount = clipSize;
     }
+   
 }

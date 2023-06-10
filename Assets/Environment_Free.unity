@@ -2853,7 +2853,7 @@ PrefabInstance:
     - target: {fileID: 3901439268224676756, guid: 026d209fd61b84bdd992d3569a328d92,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 026d209fd61b84bdd992d3569a328d92, type: 3}
@@ -3017,6 +3017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720180724952678817, guid: 4cf37578a9f664d328286a775501452d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720180724952678818, guid: 4cf37578a9f664d328286a775501452d,
         type: 3}
