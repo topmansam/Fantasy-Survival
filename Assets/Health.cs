@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         skinnedMeshRenderer.material.color = Color.white * intensity;
     }
 
-    public void TakeDamage(float amount, Vector3 direction)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         healthBar.SetHealthBarPercentage(currentHealth / initialMaxHealth);

@@ -5,8 +5,11 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public Health health;
-   public void onRaycastHit(RaycastWeapon weapon, Vector3 direction)
+   
+   public void onRaycastHit(RaycastWeapon weapon)
     {
-        health.TakeDamage(weapon.damage, direction);
+
+        health.TakeDamage(weapon.modifiedDamage);
+        Debug.Log("took " + weapon.modifiedDamage);
     }
 }

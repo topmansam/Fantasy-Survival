@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109842}
-  m_LocalRotation: {x: -0.011560203, y: 0.7359187, z: 0.12093315, w: 0.666082}
+  m_LocalRotation: {x: -0.011561367, y: 0.73591596, z: 0.120933354, w: 0.66608495}
   m_LocalPosition: {x: -0.681, y: 0.023, z: 0.185}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -144,29 +144,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30718006eaf534268adc194f17169235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  falloffRange: 25
+  modifiedDamage: 0
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   weaponSlot: 0
   isFiring: 0
   fireRate: 1
   bulletSpeed: 1000
-  bulletDrop: 0
   maxBounces: 0
   debug: 0
   muzzleFlash:
-  - {fileID: 0}
-  hitEffect: {fileID: 0}
-  weaponName: 
+  - {fileID: 4841200485963983720}
+  - {fileID: 9191022633576767147}
+  hitEffect: {fileID: 672256241151654864}
+  weaponName: rifle
   ammoWidget: {fileID: 0}
   ammoCount: 0
-  clipSize: 0
-  totalAmmo: 24
-  damage: 10
-  raycastOrigin: {fileID: 0}
+  clipSize: 30
+  totalAmmo: 30
+  damage: 40
+  raycastOrigin: {fileID: 4051110999772721724}
   raycastDestination: {fileID: 0}
-  recoil: {fileID: 0}
-  magazine: {fileID: 0}
+  recoil: {fileID: 4051111000718307972}
+  magazine: {fileID: 1673962988204048668}
   accumulatedTime: 0
 --- !u!1 &195948
 GameObject:

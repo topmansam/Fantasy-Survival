@@ -74,14 +74,14 @@ public class EnemyManager : MonoBehaviour {
 
         if (attackDelayTimer >= delayBetweenAttacks-attackAnimStartDelay && attackDelayTimer <=delayBetweenAttacks && playerInReach) {
             enemyAnimator.SetTrigger("isAttacking");
-            Debug.Log("can attack now");
+            
              
 
         }
 
         if(attackDelayTimer >= delayBetweenAttacks && playerInReach) {
             player.GetComponent<PlayerManager>().Hit(damage);
-            Debug.Log("Getting hit");
+            
             attackDelayTimer = 0;
         }
     }

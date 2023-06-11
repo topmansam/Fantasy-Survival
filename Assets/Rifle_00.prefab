@@ -911,6 +911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf48dc659d59849699371927fe61dbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  falloffRange: 90
+  modifiedDamage: 0
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -918,7 +920,6 @@ MonoBehaviour:
   isFiring: 0
   fireRate: 10
   bulletSpeed: 1000
-  bulletDrop: 0
   maxBounces: 0
   debug: 0
   muzzleFlash:
@@ -926,14 +927,16 @@ MonoBehaviour:
   - {fileID: 7088378277717324896}
   hitEffect: {fileID: 7087844870267287118}
   weaponName: rifle
+  ammoWidget: {fileID: 0}
   ammoCount: 0
-  clipSize: 15
-  totalAmmo: 30
+  clipSize: 1000
+  totalAmmo: 10000
   damage: 10
   raycastOrigin: {fileID: 6962493267185255441}
   raycastDestination: {fileID: 0}
   recoil: {fileID: 0}
   magazine: {fileID: 3210782867318436721}
+  accumulatedTime: 0
 --- !u!114 &1475282726
 MonoBehaviour:
   m_ObjectHideFlags: 0

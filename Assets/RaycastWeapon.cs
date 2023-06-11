@@ -12,13 +12,14 @@ public class RaycastWeapon : MonoBehaviour
         // public TrailRenderer tracer; // Commented out the TrailRenderer
         public int bounce;
     }
-
+    public float falloffRange;
+    public float modifiedDamage;
     public LayerMask playerLayerMask;
     public ActiveWeapon.WeaponSlot weaponSlot;
     public bool isFiring = false;
     public int fireRate = 25;
     public float bulletSpeed = 1000.0f;
-    public float bulletDrop = 0.0f;
+
     public int maxBounces = 0;
     public bool debug = false;
     public ParticleSystem[] muzzleFlash;
@@ -48,17 +49,18 @@ public class RaycastWeapon : MonoBehaviour
         totalAmmo_ref = totalAmmo;
         clipSize_ref = clipSize;
 
-        ammoCount=clipSize;
+        ammoCount = clipSize;
         recoil = GetComponent<WeaponRecoil>();
-        ammoWidget= FindObjectOfType<AmmoWidget>();
-        ammoWidget.Refresh(ammoCount,totalAmmo);
+        ammoWidget = FindObjectOfType<AmmoWidget>();
+        ammoWidget.Refresh(ammoCount, totalAmmo);
     }
 
     Vector3 GetPosition(Bullet bullet)
     {
-        // p + v*t + 0.5*g*t*t
-        Vector3 gravity = Vector3.down * bulletDrop;
-        return (bullet.initialPosition) + (bullet.initialVelocity * bullet.time) + (0.5f * gravity * bullet.time * bullet.time);
+        Vector3 gravity = Vector3.down;
+        Vector3 displacement = bullet.initialVelocity * bullet.time;
+        Vector3 drop = 0.5f * gravity * bullet.time * bullet.time;
+        return bullet.initialPosition + displacement + drop;
     }
 
     public Bullet CreateBullet(Vector3 position, Vector3 velocity)
@@ -129,30 +131,28 @@ public class RaycastWeapon : MonoBehaviour
         bullets.RemoveAll(bullet => bullet.time >= maxLifetime);
     }
 
+    //Raycast segment without clamp
     void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
     {
         Vector3 direction = end - start;
         float distance = direction.magnitude;
-        ray.origin = start;
-        ray.direction = direction;
+        Ray ray = new Ray(start, direction);
 
         Color debugColor = Color.green;
         int layerMask = ~playerLayerMask;
-        if (Physics.Raycast(ray, out hitInfo, distance, layerMask))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, distance, layerMask))
         {
             Debug.Log("Object Hit: " + hitInfo.collider.gameObject.name);
 
-            // Check the layer of the hit object
             int hitObjectLayer = hitInfo.collider.gameObject.layer;
             Debug.Log("Hit Object Layer: " + LayerMask.LayerToName(hitObjectLayer));
 
-            // Check the player layer mask value
             int playerLayerMaskValue = playerLayerMask.value;
             Debug.Log("Player Layer Mask Value: " + playerLayerMaskValue);
 
-            // Verify if the player layer mask is correctly set
             bool ignorePlayerLayer = (playerLayerMaskValue & (1 << hitObjectLayer)) != 0;
             Debug.Log("Ignore Player Layer: " + ignorePlayerLayer);
+
             hitEffect.transform.position = hitInfo.point;
             hitEffect.transform.forward = hitInfo.normal;
             hitEffect.Emit(1);
@@ -161,21 +161,22 @@ public class RaycastWeapon : MonoBehaviour
             end = hitInfo.point;
             debugColor = Color.red;
 
+          
+            float maxDamage =damage; // Adjust this value as needed
 
+            float damageMultiplier = 1.0f - distance / falloffRange;
+            damageMultiplier = Mathf.Max(damageMultiplier, 0.0f);
+             modifiedDamage = maxDamage * damageMultiplier;
 
-            //// Collision impulse
-            //var rb2d = hitInfo.collider.GetComponent<Rigidbody>();
-            //if (rb2d)
-            //{
-            //    rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
-            //}
+            Debug.Log("Distance: " + distance);
+            Debug.Log("Damage Multiplier: " + damageMultiplier);
+            Debug.Log("Modified Damage: " + modifiedDamage);
+
             var hitbox = hitInfo.collider.GetComponent<Hitbox>();
             if (hitbox)
             {
-                hitbox.onRaycastHit(this, ray.direction);
+                hitbox.onRaycastHit(this);
             }
-
-            // bullet.tracer.transform.position = end; // Commented out the TrailRenderer position update
 
             if (debug)
             {
@@ -183,6 +184,60 @@ public class RaycastWeapon : MonoBehaviour
             }
         }
     }
+
+    //Raycast segment with clamp
+    //void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
+    //{
+    //    Vector3 direction = end - start;
+    //    float distance = direction.magnitude;
+    //    Ray ray = new Ray(start, direction);
+
+    //    Color debugColor = Color.green;
+    //    int layerMask = ~playerLayerMask;
+    //    if (Physics.Raycast(ray, out RaycastHit hitInfo, distance, layerMask))
+    //    {
+    //        Debug.Log("Object Hit: " + hitInfo.collider.gameObject.name);
+
+    //        int hitObjectLayer = hitInfo.collider.gameObject.layer;
+    //        Debug.Log("Hit Object Layer: " + LayerMask.LayerToName(hitObjectLayer));
+
+    //        int playerLayerMaskValue = playerLayerMask.value;
+    //        Debug.Log("Player Layer Mask Value: " + playerLayerMaskValue);
+
+    //        bool ignorePlayerLayer = (playerLayerMaskValue & (1 << hitObjectLayer)) != 0;
+    //        Debug.Log("Ignore Player Layer: " + ignorePlayerLayer);
+
+    //        hitEffect.transform.position = hitInfo.point;
+    //        hitEffect.transform.forward = hitInfo.normal;
+    //        hitEffect.Emit(1);
+
+    //        bullet.time = maxLifetime;
+    //        end = hitInfo.point;
+    //        debugColor = Color.red;
+
+    //        falloffRange = 5000.0f; // Adjust this value as needed
+    //        float maxDamage = 100.0f; // Adjust this value as needed
+
+    //        float damageMultiplier = 1.0f - distance / falloffRange;
+    //        damageMultiplier = Mathf.Max(damageMultiplier, 0.0f);
+    //        float modifiedDamage = maxDamage * damageMultiplier;
+
+    //        Debug.Log("Distance: " + distance);
+    //        Debug.Log("Damage Multiplier: " + damageMultiplier);
+    //        Debug.Log("Modified Damage: " + modifiedDamage);
+
+    //        var hitbox = hitInfo.collider.GetComponent<Hitbox>();
+    //        if (hitbox)
+    //        {
+    //            hitbox.onRaycastHit(this);
+    //        }
+
+    //        if (debug)
+    //        {
+    //            Debug.DrawLine(start, end, debugColor, 1.0f);
+    //        }
+    //    }
+    //}
 
     private void FireBullet()
     {
@@ -215,5 +270,5 @@ public class RaycastWeapon : MonoBehaviour
         clipSize = clipSize_ref;
         ammoCount = clipSize;
     }
-   
+
 }

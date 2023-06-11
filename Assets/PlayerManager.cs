@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour, IShopCustomer
             timeSinceLastHit += Time.deltaTime;
             if (timeSinceLastHit >= healthRegenerationDelay)
             {
-                Debug.Log("regen");
+                 
                 RegenerateHealth();
             }
         }
@@ -71,12 +71,12 @@ public class PlayerManager : MonoBehaviour, IShopCustomer
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        healthNum.text = maxHealth.ToString() + " Health ";
+        
 
         if (currentHealth <= 0)
         {
             //gameManager.EndGame();
-            Debug.Log("GAME ENDED");
+           
         }
         else
         {
@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour, IShopCustomer
         currentHealth += healthRegenerationRate * Time.deltaTime;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         healthBar.SetHealth(currentHealth);
-        healthNum.text = maxHealth.ToString() + " Health ";
+       
 
         if (currentHealth >= maxHealth)
         {
